@@ -154,10 +154,10 @@ public class Game {
 
     private static void updateDisplay() {
         System.out.println(locations[currentLocale].getText());
+        System.out.print("[" + moves + " moves, score " + score + "] ");
     }
 
     private static void getCommand() {
-        System.out.print("[" + moves + " moves, score " + score + "] ");
         Scanner inputReader = new Scanner(System.in);
         command = inputReader.nextLine();  // command is global.
     }
@@ -195,7 +195,12 @@ public class Game {
             } else {
                 currentLocale = newLocation;
                 moves = moves + 1;
+                score = score + 5;
                 // TODO: Deal with hasVisited and the score here.
+                if (Locale[currentLocale].hasVisited = false){
+                    score = score + 5;
+                }
+
             }
         }
     }
@@ -226,6 +231,45 @@ public class Game {
     private static void takeItem() {
         System.out.println("This function is called when the player add items to their inventory");
     }
+
+
+
+    /*private static void pointAdder() {
+        //alert("function was called")
+        //---Player does not recieve points for entering the Main Rooom e.g. the room they started in---
+
+        if (Locale[currentLocale].hasVisited = false){
+            score = score + 5;
+        }
+
+        if (currentLocale == 0 && timesRoomEntered.loc0 < 1) {
+            //score = score + 5;
+            timesRoomEntered.loc0 = timesRoomEntered.loc0 + 1;
+        } else if (currentLocale == 1 && timesRoomEntered.loc1 < 1) {
+            score = score + 5;
+            timesRoomEntered.loc1 = timesRoomEntered.loc1 + 1;
+        } else if (currentLocale == 2 && timesRoomEntered.loc2 < 1) {
+            score = score + 5;
+            timesRoomEntered.loc2 = timesRoomEntered.loc2 + 1;
+        } else if (currentLocale == 3 && timesRoomEntered.loc3 < 1) {
+            score = score + 5;
+            timesRoomEntered.loc3 = timesRoomEntered.loc3 + 1;
+        } else if (currentLocale == 4 && timesRoomEntered.loc4 < 1) {
+            score = score + 5;
+            timesRoomEntered.loc4 = timesRoomEntered.loc4 + 1;
+        } else if (currentLocale == 5 && timesRoomEntered.loc5 < 1) {
+            score = score + 5;
+            timesRoomEntered.loc5 = timesRoomEntered.loc5 + 1;
+        } else if (currentLocale == 6 && timesRoomEntered.loc6 < 1) {
+            score = score + 5;
+            timesRoomEntered.loc6 = timesRoomEntered.loc6 + 1;
+        } else if (currentLocale == 7 && timesRoomEntered.loc7 < 1) {
+            score = score + 5;
+        } else {
+            //score = score + 5;
+        }
+    }*/
+
 
     private static void quit() {
         stillPlaying = false;

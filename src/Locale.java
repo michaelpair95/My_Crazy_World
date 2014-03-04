@@ -6,7 +6,7 @@ public class Locale {
     //
     // Public
     //
-
+    public static boolean hasVisited = false;
     // Constructor
     public Locale(int id) {
         this.id = id;
@@ -18,7 +18,7 @@ public class Locale {
     }
 
     public String getText() {
-        return this.name + "\n" + this.desc;
+        return this.name + "\n" + this.desc + "\n" + this.hasVisited;
     }
 
     public String getName() {
@@ -60,5 +60,4 @@ public class Locale {
     private int     id;
     private String  name;
     private String  desc;
-    private boolean hasVisited = false;
 }
