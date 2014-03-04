@@ -107,13 +107,13 @@ public class Game {
 
         Space loc7 = new Space(7);
         loc7.setName("Kennedy Space Center");
-        loc7.setDesc("It feels like its over 9000 degrees here");
+        loc7.setDesc("There's a shuttle ready to launch");
         loc7.setNearestPlanet("Planet Vegeta");
 
         Time loc8 = new Time(8);
         loc8.setName("The DeLorean");
         loc8.setDesc("The time is set to ____"); //TODO: find a time and date to use
-        loc8.setNearestYear("_____");
+        loc8.setNearestYear("__1984?___");
 
 
         // Set up the location array.
@@ -136,16 +136,17 @@ public class Game {
         }
         // Set up the navigation matrix.
         nav = new int[][] {
-       /* N   S   E   W   U   D */
-       /* 0   1   2   3   4   5 */
-        { 2,  6,  5,  1,  7, -1},
-        { 3, -1,  0, -1, -1, -1},
-        {-1,  0, -1,  3, -1, -1},
-        {-1,  1,  2,  4, -1, -1},
-        {-1, -1,  3, -1, -1, -1},
-        {-1, -1, -1,  0, -1, -1},
-        { 0, -1, -1, -1, -1, -1},
-        {-1, -1, -1, -1, -1,  0}
+        /*N   S   E  W */
+        /*0   1   2  3 */
+        { 3, -1,  1, -1},
+        { 2,  6, -1,  0},
+        { 7,  1,  5,  3},
+        {-1,  0,  2,  4},
+        { 8, -1,  3, -1},
+        {-1, -1, -1,  2},
+        { 1, -1, -1, -1},
+        {-1,  2, -1, -1},
+        {-1,  4, -1, -1}
         };
 
         //createMagicItems();
@@ -173,10 +174,6 @@ public class Game {
             dir = 2;
         } else if ( command.equalsIgnoreCase("west")     || command.equalsIgnoreCase("w") ) {
             dir = 3;
-        } else if ( command.equalsIgnoreCase("up")       || command.equalsIgnoreCase("u") ) {
-            dir = 4;
-        } else if ( command.equalsIgnoreCase("down")     || command.equalsIgnoreCase("d") ) {
-            dir = 5;
         } else if ( command.equalsIgnoreCase("map")      || command.equalsIgnoreCase("m") ) {
             showMap();
         } else if ( command.equalsIgnoreCase("inventory")|| command.equalsIgnoreCase("i") ) {
