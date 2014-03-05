@@ -19,6 +19,7 @@ public class Game {
     public static int[][]  nav;                 // An uninitialized array of type int int.
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
+    //public static int numberRoomEnter = 0;
 
     public static void main(String[] args) {
         if (DEBUGGING) {
@@ -80,40 +81,49 @@ public class Game {
         Locale loc0 = new Locale(0);
         loc0.setName("A Shack");
         loc0.setDesc("Its a very small shack");
+        loc0.numberRoomEnter = 0;
 
         Locale loc1 = new Locale(1);
         loc1.setName("Erebor");
         loc1.setDesc("What happened to all the gold?");
+        loc1.numberRoomEnter = 0;
 
         Locale loc2 = new Locale(2);
         loc2.setName("The Library");
         loc2.setDesc("It's so boring here...");
+        loc2.numberRoomEnter = 0;
 
         Locale loc3 = new Locale(3);
         loc3.setName("The SUPER Market");
         loc3.setDesc("Wanna buy some mutten?");
+        loc3.numberRoomEnter = 0;
 
         Locale loc4 = new Locale(4);
         loc4.setName("Rainbow Road");
         loc4.setDesc("Wiiiiiiiiiiiiii!");
+        loc4.numberRoomEnter = 0;
 
         Locale loc5 = new Locale(5);
         loc5.setName("Eetzeek Hagadol");
         loc5.setDesc("Shalom habibi, mah aht rotsah?");
+        loc5.numberRoomEnter = 0;
 
         Locale loc6 = new Locale(6);
         loc6.setName("Magick Shoppe");
         loc6.setDesc("You can get enchanted stuffs here");
+        loc6.numberRoomEnter = 0;
 
         Space loc7 = new Space(7);
         loc7.setName("Kennedy Space Center");
         loc7.setDesc("There's a shuttle ready to launch");
         loc7.setNearestPlanet("Planet Vegeta");
+        loc7.numberRoomEnter = 0;
 
         Time loc8 = new Time(8);
         loc8.setName("The DeLorean");
         loc8.setDesc("The time is set to ____"); //TODO: find a time and date to use
         loc8.setNearestYear("__1984?___");
+        loc8.numberRoomEnter = 0;
 
 
         // Set up the location array.
@@ -149,7 +159,6 @@ public class Game {
         {-1,  4, -1, -1}
         };
 
-        //createMagicItems();
     }
 
     private static void updateDisplay() {
@@ -195,12 +204,13 @@ public class Game {
             } else {
                 currentLocale = newLocation;
                 moves = moves + 1;
-                score = score + 5;
+                pointAdder();
+
                 // TODO: Deal with hasVisited and the score here.
-                if (Locale[currentLocale].hasVisited = false){
+                
+                if (locations[currentLocale].hasVisited = false){
                     score = score + 5;
                 }
-
             }
         }
     }
@@ -234,41 +244,16 @@ public class Game {
 
 
 
-    /*private static void pointAdder() {
-        //alert("function was called")
-        //---Player does not recieve points for entering the Main Rooom e.g. the room they started in---
+    private static void pointAdder() {
+        locations[currentLocale].numberRoomEnter = locations[currentLocale].numberRoomEnter + 1;
 
-        if (Locale[currentLocale].hasVisited = false){
-            score = score + 5;
+        if (locations[currentLocale].numberRoomEnter <= 1) {
+            locations[currentLocale].hasVisited = false;
+        } else if (locations[currentLocale].numberRoomEnter > 1) {
+            locations[currentLocale].hasVisited = true;
         }
 
-        if (currentLocale == 0 && timesRoomEntered.loc0 < 1) {
-            //score = score + 5;
-            timesRoomEntered.loc0 = timesRoomEntered.loc0 + 1;
-        } else if (currentLocale == 1 && timesRoomEntered.loc1 < 1) {
-            score = score + 5;
-            timesRoomEntered.loc1 = timesRoomEntered.loc1 + 1;
-        } else if (currentLocale == 2 && timesRoomEntered.loc2 < 1) {
-            score = score + 5;
-            timesRoomEntered.loc2 = timesRoomEntered.loc2 + 1;
-        } else if (currentLocale == 3 && timesRoomEntered.loc3 < 1) {
-            score = score + 5;
-            timesRoomEntered.loc3 = timesRoomEntered.loc3 + 1;
-        } else if (currentLocale == 4 && timesRoomEntered.loc4 < 1) {
-            score = score + 5;
-            timesRoomEntered.loc4 = timesRoomEntered.loc4 + 1;
-        } else if (currentLocale == 5 && timesRoomEntered.loc5 < 1) {
-            score = score + 5;
-            timesRoomEntered.loc5 = timesRoomEntered.loc5 + 1;
-        } else if (currentLocale == 6 && timesRoomEntered.loc6 < 1) {
-            score = score + 5;
-            timesRoomEntered.loc6 = timesRoomEntered.loc6 + 1;
-        } else if (currentLocale == 7 && timesRoomEntered.loc7 < 1) {
-            score = score + 5;
-        } else {
-            //score = score + 5;
-        }
-    }*/
+    }
 
 
     private static void quit() {

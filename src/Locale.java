@@ -7,6 +7,8 @@ public class Locale {
     // Public
     //
     public static boolean hasVisited = false;
+    public static int numberRoomEnter;
+
     // Constructor
     public Locale(int id) {
         this.id = id;
@@ -18,7 +20,7 @@ public class Locale {
     }
 
     public String getText() {
-        return this.name + "\n" + this.desc + "\n" + this.hasVisited;
+        return this.name + "\n" + this.desc + "\n" + this.hasVisited  + "\n" + this.numberRoomEnter;
     }
 
     public String getName() {
@@ -35,6 +37,10 @@ public class Locale {
         this.desc = value;
     }
 
+
+    public int getGetNumberRoomEnter() {return numberRoomEnter;}
+    public static void setNumberRoomEnter(int numberRoomEnter) {Locale.numberRoomEnter = numberRoomEnter;}
+
     public boolean getHasVisited() {
         return hasVisited;
     }
@@ -44,7 +50,7 @@ public class Locale {
 
 
     // Other methods
-    @Override
+   /* @Override
     public String toString(){
         return "[Locale id="
                 + this.id
@@ -52,7 +58,7 @@ public class Locale {
                 + this.name
                 + " desc=" + this.desc
                 + " hasVisited=" + this.hasVisited + "]";
-    }
+    } */
 
     //
     //  Private
