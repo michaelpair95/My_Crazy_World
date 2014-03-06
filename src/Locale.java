@@ -38,7 +38,7 @@ public class Locale {
     }
 
 
-    public int getGetNumberRoomEnter() {return numberRoomEnter;}
+    public int getNumberRoomEnter() {return numberRoomEnter;}
     public static void setNumberRoomEnter(int numberRoomEnter) {Locale.numberRoomEnter = numberRoomEnter;}
 
     public boolean getHasVisited() {
