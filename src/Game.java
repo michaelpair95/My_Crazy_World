@@ -74,65 +74,64 @@ public class Game {
         command = new String();
         stillPlaying = true;   // TODO: Do we need this?
         System.out.println("Mikes Crazy World!");
-        System.out.println("To see a list of commands, type \"h\" or \"help\" or");
-        System.out.println("------------------");
+        System.out.println("To see a list of commands, type \"h\" or \"help\"");
 
         // Set up the location instances of the Locale class.
         Locale loc0 = new Locale(0);
         loc0.setName("A Shack");
         loc0.setDesc("Its a very small shack");
-        loc0.setNumberRoomEnter(0);
-        loc0.setHasVisited(false);
+        loc0.setAvailableDirs("North East");
+        //loc0.setHasVisited(false);
 
         Locale loc1 = new Locale(1);
         loc1.setName("Erebor");
         loc1.setDesc("What happened to all the gold?");
-        loc1.setNumberRoomEnter(0);
-        loc1.setHasVisited(false);
+        loc1.setAvailableDirs("North South West");
+        //loc1.setHasVisited(false);
 
         Locale loc2 = new Locale(2);
         loc2.setName("The Library");
         loc2.setDesc("It's so boring here...");
-        loc2.setNumberRoomEnter(0);
-        loc2.setHasVisited(false);
+        loc2.setAvailableDirs("North South East West");
+        //loc2.setHasVisited(false);
 
         Locale loc3 = new Locale(3);
         loc3.setName("The SUPER Market");
         loc3.setDesc("Wanna buy some mutten?");
-        loc3.setNumberRoomEnter(0);
-        loc3.setHasVisited(false);
+        loc3.setAvailableDirs("South West East");
+        //loc3.setHasVisited(false);
 
         Locale loc4 = new Locale(4);
         loc4.setName("Rainbow Road");
         loc4.setDesc("Wiiiiiiiiiiiiii!");
-        loc4.setNumberRoomEnter(0);
-        loc4.setHasVisited(false);
+        loc4.setAvailableDirs("North East");
+        //loc4.setHasVisited(false);
 
         Locale loc5 = new Locale(5);
         loc5.setName("Eetzeek Hagadol");
         loc5.setDesc("Shalom habibi, mah aht rotsah?");
-        loc5.setNumberRoomEnter(0);
-        loc5.setHasVisited(false);
+        loc5.setAvailableDirs("West");
+        //loc5.setHasVisited(false);
 
         Locale loc6 = new Locale(6);
         loc6.setName("Magick Shoppe");
         loc6.setDesc("You can get enchanted stuffs here");
-        loc6.setNumberRoomEnter(0);
-        loc6.setHasVisited(false);
+        loc6.setAvailableDirs("North");
+        //loc6.setHasVisited(false);
 
         Space loc7 = new Space(7);
         loc7.setName("Kennedy Space Center");
-        loc7.setDesc("There's a shuttle ready to launch");
+        loc7.setDesc("There's a shuttle ready to launch"); //TODO: figure out how to use subclasses!!!
+        loc7.setAvailableDirs("South");
         loc7.setNearestPlanet("Planet Vegeta");
-        loc7.setNumberRoomEnter(0);
-        loc7.setHasVisited(false);
+        //loc7.setHasVisited(false);
 
         Time loc8 = new Time(8);
         loc8.setName("The DeLorean");
-        loc8.setDesc("The time is set to ____"); //TODO: find a time and date to use
-        loc8.setNearestYear("__1984?___");
-        loc8.setNumberRoomEnter(0);
-        loc8.setHasVisited(false);
+        loc8.setDesc("The time is set to August 15, 1969"); //TODO: find a time and date to use
+        loc8.setAvailableDirs("South");
+        loc8.setNearestYear("August 15, 1969");
+        //loc8.setHasVisited(false);
 
 
         // Set up the location array.
@@ -171,8 +170,10 @@ public class Game {
     }
 
     private static void updateDisplay() {
+        System.out.println("-------------------------------------------");
         System.out.println(locations[currentLocale].getText());
-        System.out.print("[" + moves + " moves, score " + score + "] ");
+        System.out.println("[" + moves + " moves, score " + score + "] ");
+        System.out.println("-------------------------------------------");
     }
 
     private static void getCommand() {
@@ -207,25 +208,26 @@ public class Game {
         if (dir > -1) {   // This means a dir was set.
             int newLocation = nav[currentLocale][dir];
             if (newLocation == INVALID) {
-                System.out.println("-----------------------");
+                System.out.println("-------------------------------------------");
                 System.out.println("You cannot go that way.");
-                System.out.println("-----------------------");
+                System.out.println("-------------------------------------------");
             } else {
                 currentLocale = newLocation;
                 moves = moves + 1;
-                pointAdder();
+                locations[currentLocale].numberRoomEnter = locations[currentLocale].numberRoomEnter + 1;
 
-                // TODO: Deal with hasVisited and the score here.
-                
-                if (locations[currentLocale].hasVisited = false){
+                if (locations[currentLocale].numberRoomEnter <= 1) {
+                    locations[currentLocale].setHasVisited(false);
                     score = score + 5;
+                } else if (locations[currentLocale].numberRoomEnter > 1) {
+                    locations[currentLocale].setHasVisited(true);
                 }
             }
         }
     }
 
     private static void help() {
-        System.out.println("----------------------------");
+        System.out.println("-------------------------------------------");;
         System.out.println("The commands are as follows:");
         System.out.println("   n/north");
         System.out.println("   s/south");
@@ -236,7 +238,7 @@ public class Game {
         System.out.println("   t/take");
         System.out.println("   h/help");
         System.out.println("   q/quit");
-        System.out.println("----------------------------");
+        System.out.println("-------------------------------------------");
     }
 
     private static void showMap() {
@@ -250,20 +252,6 @@ public class Game {
     private static void takeItem() {
         System.out.println("This function is called when the player add items to their inventory");
     }
-
-
-
-    private static void pointAdder() {
-        locations[currentLocale].numberRoomEnter = locations[currentLocale].numberRoomEnter + 1;
-
-        if (locations[currentLocale].numberRoomEnter <= 1) {
-            locations[currentLocale].hasVisited = false;
-        } else if (locations[currentLocale].numberRoomEnter > 1) {
-            locations[currentLocale].hasVisited = true;
-        }
-
-    }
-
 
     private static void quit() {
         stillPlaying = false;

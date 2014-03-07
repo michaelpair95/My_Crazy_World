@@ -6,8 +6,9 @@ public class Locale {
     //
     // Public
     //
-    public static boolean hasVisited = false;
-    public static int numberRoomEnter;
+    public boolean hasVisited;
+    public int numberRoomEnter;
+    public static final boolean DEBUGGING  = false; // Debugging flag.
 
     // Constructor
     public Locale(int id) {
@@ -20,7 +21,16 @@ public class Locale {
     }
 
     public String getText() {
-        return this.name + "\n" + this.desc + "\n" + this.hasVisited  + "\n" + this.numberRoomEnter;
+        if (DEBUGGING) {
+        return   "            Location: " + this.name          +
+               "\n         Description: " + this.desc          +
+               "\nAvailable Directions: " + this.availableDirs +
+               "\n         Has visited: " + this.hasVisited    +
+               "\n      # room visited: " + this.numberRoomEnter;
+        }
+        else {
+            return this.name + "\n" + this.desc + "\nAvailable Directions: " + this.availableDirs;
+        }
     }
 
     public String getName() {
@@ -37,9 +47,8 @@ public class Locale {
         this.desc = value;
     }
 
-
     public int getNumberRoomEnter() {return numberRoomEnter;}
-    public static void setNumberRoomEnter(int numberRoomEnter) {Locale.numberRoomEnter = numberRoomEnter;}
+    public void setNumberRoomEnter(int numberRoomEnter) {this.numberRoomEnter = numberRoomEnter;}
 
     public boolean getHasVisited() {
         return hasVisited;
@@ -48,6 +57,8 @@ public class Locale {
         this.hasVisited = hasVisited;
     }
 
+    public String getAvailableDirs() {return availableDirs;}
+    public void setAvailableDirs(String value) {this.availableDirs = value;}
 
     // Other methods
    /* @Override
@@ -63,7 +74,8 @@ public class Locale {
     //
     //  Private
     //
-    private int     id;
-    private String  name;
-    private String  desc;
+    private int    id;
+    private String name;
+    private String desc;
+    private String availableDirs;
 }
