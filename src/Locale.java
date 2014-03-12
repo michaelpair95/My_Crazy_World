@@ -6,13 +6,19 @@ public class Locale {
     //
     // Public
     //
+
     public boolean hasVisited;
     public int numberRoomEnter;
     public static final boolean DEBUGGING  = false; // Debugging flag.
+    public Items[] roomItems;  // = new Items[X];
 
     // Constructor
     public Locale(int id) {
         this.id = id;
+    }
+    public Locale(int id, int numItems) {
+        this.id = id;
+        this.roomItems = new Items[numItems];
     }
 
     // Getters and Setters

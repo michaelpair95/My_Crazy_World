@@ -1,0 +1,72 @@
+﻿Items item0 = new Items(0);
+        item0.setName("Map");
+
+
+        Items item1 = new Items(1);
+        item1.setName("Sword");
+
+
+        Items[] itemize  = new Items[2];
+        itemize[0] = item0;
+        itemize[1] = item1;
+
+
+
+
+Items[] items = new Items[5];
+for( int i = 0; i < 5; i++)
+{
+        items[i] = new Item(i);
+}
+
+
+items[0].setName(‘map’);
+items[1].setName(‘magic wand’);
+items[2].setName(‘stuff’);
+items[3].setName(‘more stuff’);
+items[4].setName(‘even more stuff’);
+
+
+Develop a Location class {id,name,description,item[],toString()}
+
+
+public class Locale {
+
+
+    //
+    // Public
+    //
+    public boolean hasVisited;
+    public int numberRoomEnter;
+    public static final boolean DEBUGGING  = false; // Debugging flag.
+    public Items[] roomItems // = new Items[X];
+        
+
+
+    // Constructor
+    public Locale(int id, int numItems) {
+        this.id = id;
+        this.roomItems = new Items[numItems];
+    }
+
+
+
+
+Items[] inventory = new Items[100];
+for( int i = 0; i < 100; i++)
+{
+        inventory[i] = new Item(i);
+}
+/*global*/ inventoryFilled = 0
+
+
+    private static void takeItem() {
+        //ask the use what item in the room they want to take
+        //System.out.println(“These are the items in this room:”);
+        // for item in list of items in room, like Shoppe.items where Shoppe is locale[8] or whatever
+                //System.out.println(“item i: name”)
+        //user_choice = accept user input of an item number (i is the index in the list in the room, name is the name of the object)
+        //inventory[inventoryFilled] = locale[8].items[user_choice]
+        // inventoryFilled ++;
+        System.out.println("This function is called when the player add items to their inventory");
+    }

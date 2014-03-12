@@ -23,7 +23,7 @@ public class Time extends Locale {
     // Other methods
     @Override
     public String toString() {
-        return "Space..." + super.toString() + " nearestPlanet=" + this.nearestYear;
+        return "Space..." + super.toString() + " nearestYear=" + this.nearestYear;
     }
 
 
