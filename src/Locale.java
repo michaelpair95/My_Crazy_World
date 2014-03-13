@@ -10,16 +10,16 @@ public class Locale {
     public boolean hasVisited;
     public int numberRoomEnter;
     public static final boolean DEBUGGING  = false; // Debugging flag.
-    public Items[] roomItems;  // = new Items[X];
+    //public Items[] roomItems = new Items[5];
 
     // Constructor
     public Locale(int id) {
         this.id = id;
     }
-    public Locale(int id, int numItems) {
+    /*public Locale(int id, int numItems) {
         this.id = id;
         this.roomItems = new Items[numItems];
-    }
+    }*/
 
     // Getters and Setters
     public int getId() {
@@ -66,6 +66,12 @@ public class Locale {
     public String getAvailableDirs() {return availableDirs;}
     public void setAvailableDirs(String value) {this.availableDirs = value;}
 
+    //public Items[] getRoomItems() {return roomItems;}
+    //public void setRoomItems(Items[] roomItems) {this.roomItems = roomItems;}
+
+
+
+
     // Other methods
    /* @Override
     public String toString(){
@@ -84,4 +90,6 @@ public class Locale {
     private String name;
     private String desc;
     private String availableDirs;
+
+
 }

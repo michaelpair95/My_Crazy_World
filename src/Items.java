@@ -10,19 +10,21 @@ public class Items {
     }
 
     // Getters and Setters
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getName() {return name;}
+    public void setName(String name) {this.name = name;}
 
-    public String getDesc() {
-        return desc;
-    }
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+    public String getDesc() {return desc;}
+    public void setDesc(String desc) {this.desc = desc;}
+
+    public Boolean getFound() {return found;}
+
+    public boolean itemFound() {return found;}
+
+    public void setFound(boolean found){this.found = found;}
+
+    public void setFound(Boolean found) {this.found = found;}
+
+
 
     /*
     public Items getNext() {return next;}
@@ -41,8 +43,10 @@ public class Items {
     //
     // Private
     //
+    private int id;
     private String name;
     private String desc;
+    private Boolean found = false;
     private Items next = null;
 
 }

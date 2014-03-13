@@ -19,6 +19,8 @@ public class Game {
     public static int[][]  nav;                 // An uninitialized array of type int int.
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
+    public static Items[] inventory;
+    //public static int inventoryFilled = 0;
     //public static int numberRoomEnter = 0;
 
     public static void main(String[] args) {
@@ -75,6 +77,7 @@ public class Game {
         stillPlaying = true;   // TODO: Do we need this?
         System.out.println("Mikes Crazy World!");
         System.out.println("To see a list of commands, type \"h\" or \"help\"");
+
 
         // Set up the location instances of the Locale class.
         Locale loc0 = new Locale(0);
@@ -134,31 +137,27 @@ public class Game {
         //loc8.setHasVisited(false);
 
 
-        /*Items item0 = new Items(0);
+        Items item0 = new Items(0);
         item0.setName("Map");
 
         Items item1 = new Items(1);
         item1.setName("Sword");
 
-        Items[] itemize  = new Items[2];
-        itemize[0] = item0;
-        itemize[1] = item1;*/
+        Items item2 = new Items(2);
+        item2.setName("Portal Gun");
 
-        //Inventory[] inventoryItems = new Inventory[2];
-        //inventoryItems[0] = inventory
+        Items item3 = new Items(3);
+        item3.setName("Car Keys");
 
-        Items[] items = new Items[5];
-        for( int i = 0; i < 5; i++)
-        {
-            items[i] = new Items(i);
-        }
+        Items item4 = new Items(4);
+        item4.setName("Launch Codes");
 
-        items[0].setName("map");
-        items[1].setName("magic wand");
-        items[2].setName("stuff");
-        items[3].setName("more stuff");
-        items[4].setName("even more stuff");
-
+        inventory  = new Items[5];
+        inventory[0] = item0;
+        inventory[1] = item1;
+        inventory[2] = item2;
+        inventory[3] = item3;
+        inventory[4] = item4;
 
 
         // Set up the location array.
@@ -179,6 +178,7 @@ public class Game {
                 System.out.println(i + ":" + locations[i].toString());
             }
         }
+
         // Set up the navigation matrix.
         nav = new int[][] {
         /*N   S   E  W */
@@ -273,12 +273,51 @@ public class Game {
         Map();
     }
 
-    private static void showInventory() {
+    private static void showInventory(){
         System.out.println("The function that displays the inventory has been called");
+
+        String satchel="";
+        if (inventory[0].itemFound()){
+            satchel= satchel+inventory[0].toString()+ "\n";
+        }
+        if(inventory[1].itemFound()){
+            satchel =satchel+inventory[1].toString()+ "\n";
+        }
+        if(inventory[2].itemFound()){
+            satchel =satchel+inventory[2].toString()+ "\n";
+        }
+        if(inventory[3].itemFound()){
+            satchel =satchel+inventory[3].toString()+ "\n";
+        }
+        if(inventory[4].itemFound()){
+            satchel =satchel+inventory[4].toString()+ "\n";
+        }
+        System.out.println(satchel);
+
     }
 
-    private static void takeItem() {
-        System.out.println("This function is called when the player add items to their inventory");
+    private static void takeItem(){
+        if (locations[currentLocale] == locations[0]) {
+            inventory[0].setFound(true);
+        }
+        if (locations[currentLocale] == locations[2]) {
+            inventory[1].setFound(true);
+            //locations[currentLocale].setDesc("");
+        }
+        if (locations[currentLocale] == locations[2]) {
+            inventory[1].setFound(true);
+            //locations[currentLocale].setDesc("");
+        }
+        if (locations[currentLocale] == locations[2]) {
+            inventory[1].setFound(true);
+            //locations[currentLocale].setDesc("");
+        }
+        if (locations[currentLocale] == locations[2]) {
+            inventory[1].setFound(true);
+            //locations[currentLocale].setDesc("");
+        }
+        System.out.println("The item was placed in your handy dandy belt Satchel!");
+        
     }
 
     private static void quit() {
