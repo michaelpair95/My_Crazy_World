@@ -214,6 +214,9 @@ public class Game {
         System.out.println(locations[currentLocale].getText());
         System.out.println("[" + moves + " moves, score " + score + "] ");
         System.out.println("-------------------------------------------");
+        if (locations[currentLocale] == locations[6]){
+            createMagicItems();
+        }
     }
 
     private static void getCommand() {
@@ -380,6 +383,32 @@ public class Game {
         else {
             System.out.println("What map?");
         }
+    }
+
+    private static void createMagicItems() {
+        // Create the list manager for our magic items.
+        List0 magicItems  = new List0();
+        magicItems.setName("Magic Items");
+        magicItems.setDesc("These are the magic items.");
+        magicItems.setHead(null);
+
+        // Create some magic items and put them in the list.
+        ListItem i1 = new ListItem();
+        i1.setName("Bow and Arrow");
+
+        ListItem i2 = new ListItem();
+        i2.setName("Super Garbage (only works in Mr. Fusion");
+
+        ListItem i3 = new ListItem();
+        i3.setName("Invisibility Cloak");
+
+        // Link it all up.
+        magicItems.setHead(i1);
+        i1.setNext(i2);
+        i2.setNext(i3);
+        i3.setNext(null);
+
+        System.out.println(magicItems.toString());
     }
 
 
