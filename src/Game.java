@@ -137,6 +137,18 @@ public class Game {
         loc8.setNearestYear("August 15, 1969");
         //loc8.setHasVisited(false);
 
+        // Set up the location array.
+        locations = new Locale[9];
+        locations[0] = loc0;
+        locations[1] = loc1;
+        locations[2] = loc2;
+        locations[3] = loc3;
+        locations[4] = loc4;
+        locations[5] = loc5;
+        locations[6] = loc6;
+        locations[7] = loc7;
+        locations[8] = loc8;
+
 
         Items item0 = new Items(0);
         item0.setName("Map");
@@ -172,17 +184,6 @@ public class Game {
         inventory[5] = item5;
 
 
-        // Set up the location array.
-        locations = new Locale[9];
-        locations[0] = loc0;
-        locations[1] = loc1;
-        locations[2] = loc2;
-        locations[3] = loc3;
-        locations[4] = loc4;
-        locations[5] = loc5;
-        locations[6] = loc6;
-        locations[7] = loc7;
-        locations[8] = loc8;
 
         if (DEBUGGING) {
             System.out.println("All game locations:");
@@ -312,37 +313,42 @@ public class Game {
     }
 
     private static void takeItem(){
+
         if (locations[currentLocale] == locations[0]) {
             inventory[0].setFound(true);
-            pickedUp = inventory[0].getName();
+            System.out.println("The " + inventory[0].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("It's a pretty small shack");
         }
         if (locations[currentLocale] == locations[3]) {
             inventory[1].setFound(true);
-            pickedUp = inventory[1].getName();
+            System.out.println("The " + inventory[1].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("What happened to all the gold?");
         }
         if (locations[currentLocale] == locations[1]) {
             inventory[2].setFound(true);
-            pickedUp = inventory[2].getName();
+            System.out.println("The " + inventory[2].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("We have every brand you can think of!");
         }
         if (locations[currentLocale] == locations[4]) {
             inventory[3].setFound(true);
-            pickedUp = inventory[3].getName();
-            locations[currentLocale].setDesc("It's so boring here...");
+            System.out.println("The " + inventory[3].getName() + " was placed in your handy dandy belt Satchel!");
+            locations[currentLocale].setDesc("Wiiiiiiiiiiiiii!");
         }
         if (locations[currentLocale] == locations[2]) {
             inventory[4].setFound(true);
-            pickedUp = inventory[4].getName();
-            locations[currentLocale].setDesc("Wiiiiiiiiiiiiii!");
+            System.out.println("The " + inventory[4].getName() + " was placed in your handy dandy belt Satchel!");
+            locations[currentLocale].setDesc("It's so boring in here...");
         }
         if (locations[currentLocale] == locations[5]) {
             inventory[5].setFound(true);
-            pickedUp = inventory[5].getName();
+            System.out.println("The " + inventory[5].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("Shalom habibi, mah aht rotsah?");
         }
-        System.out.println("The " + pickedUp + " was placed in your handy dandy belt Satchel!");
+
+        else if (locations[currentLocale] == locations[6] || locations[currentLocale] == locations[7] || locations[currentLocale] == locations[8]) {
+            System.out.println("There's nothing to take!");
+        }
+
 
     }
 
@@ -365,15 +371,15 @@ public class Game {
         System.out.println("+++Rainbow Road+++=========+++++++SUPER++++++=========++++The Library+++=========++++++++++++++++++");
         System.out.println("++++++++++++++++++         +++++++Market+++++         ++++++++++++++++++         ++++++Hagadol+++++");
         System.out.println("++++++++++++++++++         ++++++++++++++++++         ++++++++++++++++++         ++++++++++++++++++");
-        System.out.println("                                                              ||                         ||");
-        System.out.println("                                                              ||                         ||");
-        System.out.println("                                                              ||                         ||");
-        System.out.println("                                                              ||                         ||");
-        System.out.println("                                                      ++++++++++++++++++         +++++++++++++++++");
-        System.out.println("                                                      ++++++++++++++++++         +++++++++++++++++");
-        System.out.println("                                                      ++++++A Shack+++++=========++++++Erebor+++++");
-        System.out.println("                                                      ++++++++++++++++++         +++++++++++++++++");
-        System.out.println("                                                      ++++++++++++++++++         +++++++++++++++++");
+        System.out.println("                                    ||                         ||");
+        System.out.println("                                    ||                         ||");
+        System.out.println("                                    ||                         ||");
+        System.out.println("                                    ||                         ||");
+        System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
+        System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
+        System.out.println("                           ++++++A Shack+++++=========++++++Erebor+++++");
+        System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
+        System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
         System.out.println("                                                              ||");
         System.out.println("                                                              ||");
         System.out.println("                                                              ||");
