@@ -358,38 +358,24 @@ public class Game {
     private static void Map() {
 
         if (inventory[0].itemFound()){
-            System.out.println("++++++++++++++++++                                    +++++++++++++++++");
-            System.out.println("++++++++++++++++++                                    +++++Kennedy+++++");
-            System.out.println("+++The DeLorean+++                                    ++++++Space++++++");
-            System.out.println("++++++++++++++++++                                    ++++++Center+++++");
-            System.out.println("++++++++++++++++++                                    +++++++++++++++++");
-            System.out.println("       ||                                                    ||");
-            System.out.println("       ||                                                    ||");
-            System.out.println("       ||                                                    ||");
-            System.out.println("       ||                                                    ||");
-            System.out.println("++++++++++++++++++         ++++++++++++++++++         ++++++++++++++++++         ++++++++++++++++++");
-            System.out.println("++++++++++++++++++         ++++++++The+++++++         ++++++++++++++++++         ++++++Etzeek++++++");
-            System.out.println("+++Rainbow Road+++=========+++++++SUPER++++++=========++++The Library+++=========++++++++++++++++++");
-            System.out.println("++++++++++++++++++         +++++++Market+++++         ++++++++++++++++++         ++++++Hagadol+++++");
-            System.out.println("++++++++++++++++++         ++++++++++++++++++         ++++++++++++++++++         ++++++++++++++++++");
-            System.out.println("                                    ||                         ||");
-            System.out.println("                                    ||                         ||");
-            System.out.println("                                    ||                         ||");
-            System.out.println("                                    ||                         ||");
-            System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
-            System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
-            System.out.println("                           ++++++A Shack+++++=========++++++Erebor+++++");
-            System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
-            System.out.println("                           ++++++++++++++++++         +++++++++++++++++");
-            System.out.println("                                                              ||");
-            System.out.println("                                                              ||");
-            System.out.println("                                                              ||");
-            System.out.println("                                                              ||");
-            System.out.println("                                                      +++++++++++++++++");
-            System.out.println("                                                      ++++++Magick+++++");
-            System.out.println("                                                      +++++++++++++++++");
-            System.out.println("                                                      ++++++Shoppe+++++");
-            System.out.println("                                                      +++++++++++++++++");
+            System.out.println("++++++++++++++++++                  +++++Kennedy+++++");
+            System.out.println("+++The DeLorean+++                  ++++++Space++++++");
+            System.out.println("++++++++++++++++++                  ++++++Center+++++");
+            System.out.println("       ||                                   ||");
+            System.out.println("       ||                                   ||");
+            System.out.println("++++++++++++++++++   +++++The+++++   +++++++++++++++++   +++Etzeek++++");
+            System.out.println("+++Rainbow Road+++===++++SUPER++++===+++The Library+++===+++++++++++++");
+            System.out.println("++++++++++++++++++   ++++Market+++   +++++++++++++++++   +++Hagadol+++");
+            System.out.println("                          ||                ||");
+            System.out.println("                          ||                ||");
+            System.out.println("                     +++++++++++++   +++++++++++++++++");
+            System.out.println("                     +++A Shack+++===++++++Erebor+++++");
+            System.out.println("                     +++++++++++++   +++++++++++++++++");
+            System.out.println("                                            ||");
+            System.out.println("                                            ||");
+            System.out.println("                                     ++++++Magick+++++");
+            System.out.println("                                     ++++++Shoppe+++++");
+
         }
         else {
             System.out.println("What map?");
