@@ -20,9 +20,6 @@ public class Game {
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
     public static Items[] inventory;
-    public static String pickedUp;
-    //public static int inventoryFilled = 0;
-    //public static int numberRoomEnter = 0;
 
     public static void main(String[] args) {
         if (DEBUGGING) {
@@ -81,6 +78,8 @@ public class Game {
 
 
         // Set up the location instances of the Locale class.
+        // The unused code is there because I was testing something, and couldn't seem to get it to work
+        // but I still want to try it out later
         Locale loc0 = new Locale(0);
         loc0.setName("A Shack");
         loc0.setDesc("It's a pretty small shack, but there appears to be a map tacked to the wall.");
@@ -125,7 +124,7 @@ public class Game {
 
         Space loc7 = new Space(7);
         loc7.setName("Kennedy Space Center");
-        loc7.setDesc("There's a shuttle ready to launch"); //TODO: figure out how to use subclasses!!!
+        loc7.setDesc("There's a shuttle ready to launch. To enter, please enter the launch code."); //TODO: figure out how to use subclasses!!!
         loc7.setAvailableDirs("South");
         loc7.setNearestPlanet("Planet Vegeta");
         //loc7.setHasVisited(false);
@@ -168,7 +167,7 @@ public class Game {
 
         Items item4 = new Items(4);
         item4.setName("Launch Codes");
-        item4.setDesc("156453646545");
+        item4.setDesc("489346");
 
         Items item5 = new Items(5);
         item5.setName("French Fries");
@@ -204,7 +203,7 @@ public class Game {
         {-1, -1, -1,  2},
         { 1, -1, -1, -1},
         {-1,  2, -1, -1},
-        {-1,  4, -1, -1}
+        {-1,  4, -1, -1},
         };
 
     }
@@ -246,7 +245,9 @@ public class Game {
             quit();
         } else if ( command.equalsIgnoreCase("help")     || command.equalsIgnoreCase("h") ) {
             help();
-        };
+        } else if ( command.equalsIgnoreCase("489346")   && locations[currentLocale] == locations[7]){
+            //locations[currentLocale] == locations[4]
+        }
 
         if (dir > -1) {   // This means a dir was set.
             int newLocation = nav[currentLocale][dir];
@@ -284,10 +285,6 @@ public class Game {
         System.out.println("-------------------------------------------");
     }
 
-    private static void showMap() {
-        System.out.println("The function that displays the map has been called");
-        Map();
-    }
 
     private static void showInventory(){
 
@@ -350,8 +347,6 @@ public class Game {
         else if (locations[currentLocale] == locations[6] || locations[currentLocale] == locations[7] || locations[currentLocale] == locations[8]) {
             System.out.println("There's nothing to take!");
         }
-
-
     }
 
     private static void quit() {
