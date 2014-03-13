@@ -20,6 +20,7 @@ public class Game {
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
     public static Items[] inventory;
+    public static String pickedUp;
     //public static int inventoryFilled = 0;
     //public static int numberRoomEnter = 0;
 
@@ -82,43 +83,43 @@ public class Game {
         // Set up the location instances of the Locale class.
         Locale loc0 = new Locale(0);
         loc0.setName("A Shack");
-        loc0.setDesc("Its a very small shack");
+        loc0.setDesc("It's a pretty small shack, but there appears to be a map tacked to the wall.");
         loc0.setAvailableDirs("North East");
         //loc0.setHasVisited(false);
 
         Locale loc1 = new Locale(1);
         loc1.setName("Erebor");
-        loc1.setDesc("What happened to all the gold?");
+        loc1.setDesc("What happened to all the gold and why are there so many mushrooms all over the place. /n They look pretty easy to take from the ground");
         loc1.setAvailableDirs("North South West");
         //loc1.setHasVisited(false);
 
         Locale loc2 = new Locale(2);
         loc2.setName("The Library");
-        loc2.setDesc("It's so boring here...");
+        loc2.setDesc("It's so boring here... wait, are those launch codes on the table?! Those look fun!");
         loc2.setAvailableDirs("North South East West");
         //loc2.setHasVisited(false);
 
         Locale loc3 = new Locale(3);
         loc3.setName("The SUPER Market");
-        loc3.setDesc("Wanna buy some mutten?");
+        loc3.setDesc("We have every brand you can think of! Here take this free sample.");
         loc3.setAvailableDirs("South West East");
         //loc3.setHasVisited(false);
 
         Locale loc4 = new Locale(4);
         loc4.setName("Rainbow Road");
-        loc4.setDesc("Wiiiiiiiiiiiiii!");
+        loc4.setDesc("Wiiiiiiiiiiiiii! But wait, what car do these keys go to?");
         loc4.setAvailableDirs("North East");
         //loc4.setHasVisited(false);
 
         Locale loc5 = new Locale(5);
         loc5.setName("Eetzeek Hagadol");
-        loc5.setDesc("Shalom habibi, mah aht rotsah?");
+        loc5.setDesc("Shalom habibi, mah aht rotsah? Would you like some french fries?");
         loc5.setAvailableDirs("West");
         //loc5.setHasVisited(false);
 
         Locale loc6 = new Locale(6);
         loc6.setName("Magick Shoppe");
-        loc6.setDesc("You can get enchanted stuffs here");
+        loc6.setDesc("Get here, enchanted stuff, you may");
         loc6.setAvailableDirs("North");
         //loc6.setHasVisited(false);
 
@@ -139,25 +140,36 @@ public class Game {
 
         Items item0 = new Items(0);
         item0.setName("Map");
+        item0.setDesc("Looks like a map of the area");
 
         Items item1 = new Items(1);
-        item1.setName("Sword");
+        item1.setName("Mutton");
+        item1.setDesc("This thing could put someone 6 feet under if you hit them hard enough");
 
         Items item2 = new Items(2);
-        item2.setName("Portal Gun");
+        item2.setName("Mushrooms");
+        item2.setDesc("It's got a red and white top and a face. WHAT?!");
 
         Items item3 = new Items(3);
         item3.setName("Car Keys");
+        item3.setDesc("The key fob says DMC on it");
 
         Items item4 = new Items(4);
         item4.setName("Launch Codes");
+        item4.setDesc("156453646545");
 
-        inventory  = new Items[5];
+        Items item5 = new Items(5);
+        item5.setName("French Fries");
+        item5.setDesc("They have the special frie salt! OH MY GOD!!!!");
+
+
+        inventory  = new Items[6];
         inventory[0] = item0;
         inventory[1] = item1;
         inventory[2] = item2;
         inventory[3] = item3;
         inventory[4] = item4;
+        inventory[5] = item5;
 
 
         // Set up the location array.
@@ -292,6 +304,9 @@ public class Game {
         if(inventory[4].itemFound()){
             satchel =satchel+inventory[4].toString()+ "\n";
         }
+        if(inventory[5].itemFound()){
+            satchel =satchel+inventory[4].toString()+ "\n";
+        }
         System.out.println(satchel);
 
     }
@@ -299,25 +314,36 @@ public class Game {
     private static void takeItem(){
         if (locations[currentLocale] == locations[0]) {
             inventory[0].setFound(true);
+            pickedUp = inventory[0].getName();
+            locations[currentLocale].setDesc("It's a pretty small shack");
+        }
+        if (locations[currentLocale] == locations[3]) {
+            inventory[1].setFound(true);
+            pickedUp = inventory[1].getName();
+            locations[currentLocale].setDesc("What happened to all the gold?");
+        }
+        if (locations[currentLocale] == locations[1]) {
+            inventory[2].setFound(true);
+            pickedUp = inventory[2].getName();
+            locations[currentLocale].setDesc("We have every brand you can think of!");
+        }
+        if (locations[currentLocale] == locations[4]) {
+            inventory[3].setFound(true);
+            pickedUp = inventory[3].getName();
+            locations[currentLocale].setDesc("It's so boring here...");
         }
         if (locations[currentLocale] == locations[2]) {
-            inventory[1].setFound(true);
-            //locations[currentLocale].setDesc("");
+            inventory[4].setFound(true);
+            pickedUp = inventory[4].getName();
+            locations[currentLocale].setDesc("Wiiiiiiiiiiiiii!");
         }
-        if (locations[currentLocale] == locations[2]) {
-            inventory[1].setFound(true);
-            //locations[currentLocale].setDesc("");
+        if (locations[currentLocale] == locations[5]) {
+            inventory[5].setFound(true);
+            pickedUp = inventory[5].getName();
+            locations[currentLocale].setDesc("Shalom habibi, mah aht rotsah?");
         }
-        if (locations[currentLocale] == locations[2]) {
-            inventory[1].setFound(true);
-            //locations[currentLocale].setDesc("");
-        }
-        if (locations[currentLocale] == locations[2]) {
-            inventory[1].setFound(true);
-            //locations[currentLocale].setDesc("");
-        }
-        System.out.println("The item was placed in your handy dandy belt Satchel!");
-        
+        System.out.println("The " + pickedUp + " was placed in your handy dandy belt Satchel!");
+
     }
 
     private static void quit() {
