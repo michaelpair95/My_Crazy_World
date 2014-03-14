@@ -124,14 +124,14 @@ public class Game {
 
         Space loc7 = new Space(7);
         loc7.setName("Kennedy Space Center");
-        loc7.setDesc("There's a shuttle ready to launch. To enter, please enter the launch code."); //TODO: figure out how to use subclasses!!!
+        loc7.setDesc("There's a shuttle ready to launch. To enter, please enter the launch code."); //TODO: have something happen when the player enters the launch code.
         loc7.setAvailableDirs("South");
         loc7.setNearestPlanet("Planet Vegeta");
         //loc7.setHasVisited(false);
 
         Time loc8 = new Time(8);
         loc8.setName("The DeLorean");
-        loc8.setDesc("The time is set to August 15, 1969"); //TODO: find a time and date to use
+        loc8.setDesc("The time is set to August 15, 1969"); //TODO: enable the player to put keys in the ignition and put garbage in the mr fusion to power the car
         loc8.setAvailableDirs("South");
         loc8.setNearestYear("August 15, 1969");
         //loc8.setHasVisited(false);
@@ -246,7 +246,7 @@ public class Game {
         } else if ( command.equalsIgnoreCase("help")     || command.equalsIgnoreCase("h") ) {
             help();
         } else if ( command.equalsIgnoreCase("489346")   && locations[currentLocale] == locations[7]){
-            //locations[currentLocale] == locations[4]
+            //TODO: make this function work
         }
 
         if (dir > -1) {   // This means a dir was set.
