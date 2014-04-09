@@ -30,6 +30,9 @@ public class ListItem {
         this.next = next;
     }
 
+    public int getCost() {return cost;}
+    public void setCost(int cost) {this.cost = cost;}
+
     // Other methods
     @Override
     public String toString() {
@@ -42,6 +45,8 @@ public class ListItem {
     //
     private String name;
     private String desc;
+    private int cost;
     private ListItem next = null;
+
 
 }

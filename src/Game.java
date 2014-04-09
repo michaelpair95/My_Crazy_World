@@ -16,11 +16,12 @@ public class Game {
     public static final int MAX_LOCALES = 9;    // Total number of rooms/locations we have in the game.
     public static int currentLocale = 0;        // Player starts in locale 0.
     public static String command;               // What the player types as he or she plays the game.
-    public static boolean stillPlaying = true; // Controls the game loop.
+    public static boolean stillPlaying = true;  // Controls the game loop.
     public static Locale[] locations;           // An uninitialized array of type Locale. See init() for initialization.
     public static int[][]  nav;                 // An uninitialized array of type int int.
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
+    public static int money = 0;                // Keeps track of how much money the player has.
     public static Items[] inventory;
 
     public static void main(String[] args) {
@@ -410,50 +411,61 @@ public class Game {
 
         */
 
-        // Make the list manager.
-        ListMan lm1 = new ListMan();
-        lm1.setName("Magic Items");
-        lm1.setDesc("These are some of my favorite things.");
 
-        final String fileName = "magicitems.txt";
 
-        readMagicItemsFromFileToList(fileName, lm1);
-        // Display the list of items.
-        // System.out.println(lm1.toString());
 
-        // Declare an array for the items.
-        ListItem[] items = new ListItem[lm1.getLength()];
-        readMagicItemsFromFileToArray(fileName, items);
+            // Make the list manager.
+            ListMan lm1 = new ListMan();
+            lm1.setName("Magic Items");
+            lm1.setDesc("These are some of my favorite things.");
 
-        selectionSort(items);
+            final String fileName = "magicitems.txt";
 
-        /*
-        System.out.println("Items in the array AFTER sorting:");
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null) {
-                System.out.println(items[i].toString());
+            readMagicItemsFromFileToList(fileName, lm1);
+            // Display the list of items.
+            // System.out.println(lm1.toString());
+
+            // Declare an array for the items.
+            ListItem[] items = new ListItem[lm1.getLength()];
+            readMagicItemsFromFileToArray(fileName, items);
+            // Display the array of items.
+            /*System.out.println("Items in the array BEFORE sorting:");
+            for (int i = 0; i < items.length; i++) {
+                if (items[i] != null) {
+                    System.out.println(items[i].toString());
+                }
+            }
+
+            selectionSort(items);
+
+            System.out.println("Items in the array AFTER sorting:");
+            for (int i = 0; i < items.length; i++) {
+                if (items[i] != null) {
+                    System.out.println(items[i].toString());
+                }
+            }*/
+
+            // Ask player for an item.
+            Scanner inputReader = new Scanner(System.in);
+            System.out.print("What item would you like? ");
+            String targetItem = new String();
+            targetItem = inputReader.nextLine();
+            System.out.println();
+
+            ListItem li = new ListItem();
+            li = sequentialSearch(lm1, targetItem);
+            if (li != null) {
+                System.out.println(li.toString());
             }
         }
-        */
 
-        // Ask player for an item.
-        Scanner inputReader = new Scanner(System.in);
-        System.out.print("What item would you like? ");
-        String targetItem = new String();
-        targetItem = inputReader.nextLine();
-        System.out.println();
-
-        ListItem li = new ListItem();
-        li = sequentialSearch(lm1, targetItem);
-        if (li != null) {
-            System.out.println(li.toString());
-        }
-    }
-
+        //
+        // Private
+        //
     private static ListItem sequentialSearch(ListMan lm,
                                              String target) {
         ListItem retVal = null;
-        System.out.println("Searching for " + target + ".");
+        System.out.println("Let me see if we have a " + target + ".");
         int counter = 0;
         ListItem currentItem = new ListItem();
         currentItem = lm.getHead();
@@ -470,14 +482,20 @@ public class Game {
             }
         }
         if (isFound) {
-            System.out.println("Found " + target + " after " + counter + " comparisons.");
-            return  currentItem;
+            System.out.println("We have a " + currentItem + ". It costs X"); //TODO: setup pricing system
+            System.out.println("Would you like to purchase it?");
+                if(command.equalsIgnoreCase("yes") || command.equalsIgnoreCase("y")){
+                    if(/* user has enough money */ ){       //TODO: make this proper
+
+                    }
+                }
         } else {
-            System.out.println("Could not find " + target + " in " + counter + " comparisons.");
+            System.out.println("I'm sorry, but we don't have that could you be more specific or would you like to look for something else?");
         }
 
         return retVal;
     }
+
 
     private static void readMagicItemsFromFileToList(String fileName,
                                                      ListMan lm) {
@@ -548,6 +566,7 @@ public class Game {
             items[indexOfSmallest] = temp;
         }
     }
+
 
 
 

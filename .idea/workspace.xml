@@ -67,24 +67,14 @@
       <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2290576" vertical-offset="7786" max-vertical-offset="8873">
-              <caret line="425" column="55" selection-start-line="425" selection-start-column="55" selection-end-line="425" selection-end-column="55" />
+            <state vertical-scroll-proportion="-1.3128272" vertical-offset="10256" max-vertical-offset="11020">
+              <caret line="487" column="84" selection-start-line="487" selection-start-column="84" selection-end-line="487" selection-end-column="84" />
               <folding>
-                <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-                <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-                <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-                <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#14105#14106#0" expanded="true" />
+                <element signature="e#14141#14142#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ListItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
-              <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,8 +82,18 @@
       <file leaf-file-name="ListMan.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ListMan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="1197">
-              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
+              <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ListItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+              <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -122,7 +122,7 @@
       <file leaf-file-name="Time.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Time.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="760">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="608">
               <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
               <folding />
             </state>
@@ -142,7 +142,7 @@
       <file leaf-file-name="Items.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Items.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="1121">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1121">
               <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
               <folding />
             </state>
@@ -164,8 +164,8 @@
         <option value="$PROJECT_DIR$/src/Locale.java" />
         <option value="$PROJECT_DIR$/src/Items.java" />
         <option value="$PROJECT_DIR$/src/List0.java" />
-        <option value="$PROJECT_DIR$/src/ListItem.java" />
         <option value="$PROJECT_DIR$/src/ListTester.java" />
+        <option value="$PROJECT_DIR$/src/ListItem.java" />
         <option value="$PROJECT_DIR$/src/ListMan.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
@@ -202,7 +202,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -238,6 +237,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -536,10 +536,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1829" max-vertical-offset="4755">
           <caret line="147" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -581,10 +581,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3543" max-vertical-offset="4530">
           <caret line="245" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -618,10 +618,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="4271" max-vertical-offset="5035">
           <caret line="230" column="59" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -655,10 +655,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="5035">
           <caret line="7" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -692,10 +692,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="5035">
           <caret line="235" column="45" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -729,10 +729,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3705" max-vertical-offset="5263">
           <caret line="209" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -766,10 +766,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3705" max-vertical-offset="5263">
           <caret line="134" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -803,10 +803,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="5453">
           <caret line="1" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -840,10 +840,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3192" max-vertical-offset="3781">
           <caret line="168" column="93" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -877,10 +877,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="4408">
           <caret line="13" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -890,10 +890,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="475">
           <caret line="8" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -905,26 +905,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Items.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="1121">
-          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Space.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="703">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="760">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -937,39 +921,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ListMan.java">
+    <entry file="file://$PROJECT_DIR$/src/List0.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="893">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/List0.java">
+    <entry file="file://$PROJECT_DIR$/src/Items.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="1121">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="1121">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="760">
+          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ListMan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ListItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
-          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2290576" vertical-offset="7786" max-vertical-offset="8873">
-          <caret line="425" column="55" selection-start-line="425" selection-start-column="55" selection-end-line="425" selection-end-column="55" />
+        <state vertical-scroll-proportion="-1.3128272" vertical-offset="10256" max-vertical-offset="11020">
+          <caret line="487" column="84" selection-start-line="487" selection-start-column="84" selection-end-line="487" selection-end-column="84" />
           <folding>
-            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToList#0;class#Game#0" expanded="false" />
-            <element signature="method#readMagicItemsFromFileToArray#0;class#Game#0" expanded="false" />
-            <element signature="method#selectionSort#0;class#Game#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14105#14106#0" expanded="true" />
+            <element signature="e#14141#14142#0" expanded="true" />
           </folding>
         </state>
       </provider>
