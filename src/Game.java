@@ -21,8 +21,9 @@ public class Game {
     public static int[][]  nav;                 // An uninitialized array of type int int.
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
-    public static int money = 0;                // Keeps track of how much money the player has.
+    public static int money = 100000;                // Keeps track of how much money the player has.
     public static Items[] inventory;
+    public static String purchasedItem;         // this is where your purchased items are held
 
     public static void main(String[] args) {
         if (DEBUGGING) {
@@ -92,7 +93,7 @@ public class Game {
 
         Locale loc1 = new Locale(1);
         loc1.setName("Erebor");
-        loc1.setDesc("What happened to all the gold and why are there so many mushrooms all over the place. /n They look pretty easy to take from the ground");
+        loc1.setDesc("What happened to all the gold and why are there so many mushrooms all over the place. They look pretty easy to take from the ground");
         loc1.setAvailableDirs("North South West");
         //loc1.setHasVisited(false);
 
@@ -158,8 +159,8 @@ public class Game {
         item0.setDesc("Looks like a map of the area");
 
         Items item1 = new Items(1);
-        item1.setName("Mutton");
-        item1.setDesc("This thing could put someone 6 feet under if you hit them hard enough");
+        item1.setName("Insta-Cash");
+        item1.setDesc("A portable ATM that gives out the gold that was in Erebor.");
 
         Items item2 = new Items(2);
         item2.setName("Mushrooms");
@@ -178,6 +179,7 @@ public class Game {
         item5.setDesc("They have the special frie salt! OH MY GOD!!!!");
 
 
+
         inventory  = new Items[6];
         inventory[0] = item0;
         inventory[1] = item1;
@@ -185,6 +187,7 @@ public class Game {
         inventory[3] = item3;
         inventory[4] = item4;
         inventory[5] = item5;
+
 
 
 
@@ -231,7 +234,7 @@ public class Game {
         final int INVALID = -1;
         int dir = INVALID;  // This will get set to a value > 0 if a direction command was entered.
 
-        if (        command.equalsIgnoreCase("north")    || command.equalsIgnoreCase("n") ) {
+        if (        command.equalsIgnoreCase("north")    || command.equalsIgnoreCase("n") || command.equalsIgnoreCase("leave") || command.equalsIgnoreCase("l") ) {
             dir = 0;
         } else if ( command.equalsIgnoreCase("south")    || command.equalsIgnoreCase("s") ) {
             dir = 1;
@@ -281,6 +284,7 @@ public class Game {
         System.out.println("   s/south");
         System.out.println("   e/east");
         System.out.println("   w/west");
+        System.out.println("   l/leave (for the Magick Shoppe.");
         System.out.println("   i/inventory");
         System.out.println("   m/map");
         System.out.println("   t/take");
@@ -311,7 +315,7 @@ public class Game {
         if(inventory[5].itemFound()){
             satchel =satchel+inventory[4].toString()+ "\n";
         }
-        System.out.println(satchel);
+        System.out.println(satchel + purchasedItem);
 
     }
 
@@ -322,12 +326,12 @@ public class Game {
             System.out.println("The " + inventory[0].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("It's a pretty small shack");
         }
-        if (locations[currentLocale] == locations[3]) {
+        if (locations[currentLocale] == locations[1]) {
             inventory[1].setFound(true);
             System.out.println("The " + inventory[1].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("What happened to all the gold?");
         }
-        if (locations[currentLocale] == locations[1]) {
+        if (locations[currentLocale] == locations[3]) {
             inventory[2].setFound(true);
             System.out.println("The " + inventory[2].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("We have every brand you can think of!");
@@ -482,18 +486,15 @@ public class Game {
             }
         }
         if (isFound) {
-            System.out.println("We have a " + currentItem + ". It costs X"); //TODO: setup pricing system
-            System.out.println("Would you like to purchase it?");
-                if(command.equalsIgnoreCase("yes") || command.equalsIgnoreCase("y")){
-                    if(/* user has enough money */ ){       //TODO: make this proper
-
-                    }
+            System.out.println("We have a " + retVal + ". It wil cost you " + retVal.getCost() ); //TODO: setup pricing system
+                if (money >= retVal.getCost()) {
+                    purchasedItem = currentItem.toString();
                 }
         } else {
             System.out.println("I'm sorry, but we don't have that could you be more specific or would you like to look for something else?");
         }
 
-        return retVal;
+        return null;
     }
 
 
@@ -509,7 +510,7 @@ public class Game {
                 // Construct a new list item and set its attributes.
                 ListItem fileItem = new ListItem();
                 fileItem.setName(itemName);
-                //fileItem.setCost(Math.random() * 100);
+                fileItem.setCost(Math.random() * 100);
                 fileItem.setNext(null); // Still redundant. Still safe.
 
                 // Add the newly constructed item to the list.
@@ -537,7 +538,7 @@ public class Game {
                 // Construct a new list item and set its attributes.
                 ListItem fileItem = new ListItem();
                 fileItem.setName(itemName);
-                //fileItem.setCost(Math.random() * 100);
+                fileItem.setCost(Math.random() * 100);
                 fileItem.setNext(null); // Still redundant. Still safe.
 
                 // Add the newly constructed item to the array.
