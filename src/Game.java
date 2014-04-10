@@ -13,7 +13,7 @@ public class Game {
 
     // Globals
     public static final boolean DEBUGGING  = false; // Debugging flag.
-    public static final int MAX_LOCALES = 9;    // Total number of rooms/locations we have in the game.
+    public static final int MAX_LOCALES = 10;    // Total number of rooms/locations we have in the game.
     public static int currentLocale = 0;        // Player starts in locale 0.
     public static String command;               // What the player types as he or she plays the game.
     public static boolean stillPlaying = true;  // Controls the game loop.
@@ -21,7 +21,7 @@ public class Game {
     public static int[][]  nav;                 // An uninitialized array of type int int.
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
-    public static int money = 100000;                // Keeps track of how much money the player has.
+    public static int money = 0;                // Keeps track of how much money the player has.
     public static Items[] inventory;
     public static String purchasedItem;         // this is where your purchased items are held
 
@@ -80,6 +80,7 @@ public class Game {
         stillPlaying = true;   // TODO: Do we need this?
         System.out.println("Mikes Crazy World!");
         System.out.println("To see a list of commands, type \"h\" or \"help\"");
+        System.out.println("You have just woken up in a crazy futuristic society and you have to get home!");
 
 
         // Set up the location instances of the Locale class.
@@ -93,7 +94,7 @@ public class Game {
 
         Locale loc1 = new Locale(1);
         loc1.setName("Erebor");
-        loc1.setDesc("What happened to all the gold and why are there so many mushrooms all over the place. They look pretty easy to take from the ground");
+        loc1.setDesc("What happened to all the gold and why are there so many mushrooms all over the place. \n They look pretty easy to take from the ground");
         loc1.setAvailableDirs("North South West");
         //loc1.setHasVisited(false);
 
@@ -141,8 +142,12 @@ public class Game {
         loc8.setNearestYear("August 15, 1969");
         //loc8.setHasVisited(false);
 
+        Space loc9 = new Space(9);
+        loc9.setName("Planet Vegeta");
+        loc9.setDesc("A strange boy with a tail walks up to you holding a strange machine. He tells you to take it.");
+
         // Set up the location array.
-        locations = new Locale[9];
+        locations = new Locale[10];
         locations[0] = loc0;
         locations[1] = loc1;
         locations[2] = loc2;
@@ -152,6 +157,7 @@ public class Game {
         locations[6] = loc6;
         locations[7] = loc7;
         locations[8] = loc8;
+        locations[9] = loc9;
 
 
         Items item0 = new Items(0);
@@ -172,7 +178,7 @@ public class Game {
 
         Items item4 = new Items(4);
         item4.setName("Launch Codes");
-        item4.setDesc("489346");
+        item4.setDesc("8490126");
 
         Items item5 = new Items(5);
         item5.setName("French Fries");
@@ -252,8 +258,9 @@ public class Game {
             quit();
         } else if ( command.equalsIgnoreCase("help")     || command.equalsIgnoreCase("h") ) {
             help();
-        } else if ( command.equalsIgnoreCase("489346")   && locations[currentLocale] == locations[7]){
-            //TODO: make this function work
+        } else if ( command.equalsIgnoreCase("8490126")   && locations[currentLocale] == locations[7]){
+            blastOff();
+            locations[currentLocale] = locations[9];
         }
 
         if (dir > -1) {   // This means a dir was set.
@@ -276,6 +283,12 @@ public class Game {
             }
         }
     }
+
+    private  static  void blastOff() {
+        System.out.println("The spacecraft launches and the amount of G-force knocks you unconscious");
+    }
+
+
 
     private static void help() {
         System.out.println("-------------------------------------------");;
@@ -326,10 +339,11 @@ public class Game {
             System.out.println("The " + inventory[0].getName() + " was placed in your handy dandy belt Satchel!");
             locations[currentLocale].setDesc("It's a pretty small shack");
         }
-        if (locations[currentLocale] == locations[1]) {
+        if (locations[currentLocale] == locations[9]) {
             inventory[1].setFound(true);
             System.out.println("The " + inventory[1].getName() + " was placed in your handy dandy belt Satchel!");
-            locations[currentLocale].setDesc("What happened to all the gold?");
+            System.out.println("suddenly the boy shoves you back into the rocket and you go flying home");
+            locations[currentLocale] = locations[7];
         }
         if (locations[currentLocale] == locations[3]) {
             inventory[2].setFound(true);
