@@ -130,7 +130,7 @@ public class Game {
 
         Space loc7 = new Space(7);
         loc7.setName("Kennedy Space Center");
-        loc7.setDesc("There's a shuttle ready to launch. To enter, please enter the launch code."); //TODO: have something happen when the player enters the launch code.
+        loc7.setDesc("There's a shuttle ready to launch. To enter, please enter the launch code.");
         loc7.setAvailableDirs("South");
         loc7.setNearestPlanet("Planet Vegeta");
         //loc7.setHasVisited(false);
@@ -145,6 +145,7 @@ public class Game {
         Space loc9 = new Space(9);
         loc9.setName("Planet Vegeta");
         loc9.setDesc("A strange boy with a tail walks up to you holding a strange machine. He tells you to take it.");
+        //loc9.setAvailableDirs("");
 
         // Set up the location array.
         locations = new Locale[10];
@@ -258,9 +259,10 @@ public class Game {
             quit();
         } else if ( command.equalsIgnoreCase("help")     || command.equalsIgnoreCase("h") ) {
             help();
-        } else if ( command.equalsIgnoreCase("8490126")   && locations[currentLocale] == locations[7]){
+        } else if ( command.equalsIgnoreCase("8490126")  && locations[currentLocale] == locations[7]){
             blastOff();
-            locations[currentLocale] = locations[9];
+        } else if ( command.equalsIgnoreCase("earth")    && locations[currentLocale] == locations[9] ) {
+            goHome();
         }
 
         if (dir > -1) {   // This means a dir was set.
@@ -284,8 +286,13 @@ public class Game {
         }
     }
 
+    private static void goHome(){
+        locations[currentLocale] = locations[7];
+    }
+
     private  static  void blastOff() {
-        System.out.println("The spacecraft launches and the amount of G-force knocks you unconscious");
+        System.out.println("The spacecraft launches and the amount of G-force knocks you unconscious! You awake up on...");
+        locations[currentLocale] = locations[9];
     }
 
 
@@ -298,6 +305,7 @@ public class Game {
         System.out.println("   e/east");
         System.out.println("   w/west");
         System.out.println("   l/leave (for the Magick Shoppe.");
+        System.out.println("   earth (takes you back to earth");
         System.out.println("   i/inventory");
         System.out.println("   m/map");
         System.out.println("   t/take");
@@ -342,8 +350,6 @@ public class Game {
         if (locations[currentLocale] == locations[9]) {
             inventory[1].setFound(true);
             System.out.println("The " + inventory[1].getName() + " was placed in your handy dandy belt Satchel!");
-            System.out.println("suddenly the boy shoves you back into the rocket and you go flying home");
-            locations[currentLocale] = locations[7];
         }
         if (locations[currentLocale] == locations[3]) {
             inventory[2].setFound(true);
@@ -403,35 +409,6 @@ public class Game {
     }
 
     private static void createMagicItems() {
-        // Create the list manager for our magic items.
-        /*List0 magicItems  = new List0();
-        magicItems.setName("Magic Items");
-        magicItems.setDesc("These are the magic items.");
-        magicItems.setHead(null);
-
-        // Create some magic items and put them in the list.
-        ListItem i1 = new ListItem();
-        i1.setName("Bow and Arrow");
-
-        ListItem i2 = new ListItem();
-        i2.setName("Super Garbage (only works in Mr. Fusion");
-
-        ListItem i3 = new ListItem();
-        i3.setName("Invisibility Cloak");
-
-        // Link it all up.
-        magicItems.setHead(i1);
-        i1.setNext(i2);
-        i2.setNext(i3);
-        i3.setNext(null);
-
-        System.out.println(magicItems.toString());
-
-        */
-
-
-
-
             // Make the list manager.
             ListMan lm1 = new ListMan();
             lm1.setName("Magic Items");
@@ -503,6 +480,9 @@ public class Game {
             System.out.println("We have a " + retVal + ". It wil cost you " + retVal.getCost() ); //TODO: setup pricing system
                 if (money >= retVal.getCost()) {
                     purchasedItem = currentItem.toString();
+                }
+                else if (money < retVal.getCost()) {
+                    System.out.println("I'm sorry, but you do not have enough money.");
                 }
         } else {
             System.out.println("I'm sorry, but we don't have that could you be more specific or would you like to look for something else?");
