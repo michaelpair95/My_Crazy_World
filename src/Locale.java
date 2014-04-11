@@ -1,42 +1,73 @@
-/**
- * Created by michaelpair on 2/24/14.
- */
 public class Locale {
 
+    private Locale next;
     //
     // Public
     //
-
-    public boolean hasVisited;
     public int numberRoomEnter;
-    public static final boolean DEBUGGING  = false; // Debugging flag.
-    //public Items[] roomItems = new Items[5];
 
-    // Constructor
+    // Constructors
+    public Locale(){
+        this.id = 0;
+    }
     public Locale(int id) {
         this.id = id;
     }
-    /*public Locale(int id, int numItems) {
+    public Locale(int id, Locale north, Locale south, Locale east, Locale west){
         this.id = id;
-        this.roomItems = new Items[numItems];
-    }*/
+        this.north=north;
+        this.south=south;
+        this.east=east;
+        this.west=west;
+    }
 
     // Getters and Setters
     public int getId() {
         return this.id;
     }
+    public void setId(int id) {
+        this.id=id;
+    }
+    public Locale getNorth(){
+        return north;
+    }
+    public void setNorth(Locale north){
+        this.north=north;
+    }
+    public Locale getSouth(){
+        return south;
+    }
+    public void setSouth(Locale south){
+        this.south=south;
+    }
+    public Locale getEast(){
+        return east;
+    }
+    public void setEast(Locale east){
+        this.east=east;
+    }
+    public Locale getWest(){
+        return west;
+    }
+    public void setWest(Locale west){
+        this.west=west;
+    }
+    public String getAvailableDirs() {
+        return availableDirs;
+    }
+    public void setAvailableDirs(String value) {
+        this.availableDirs = value;
+    }
+
+    public int getNumberRoomEnter() {
+        return numberRoomEnter;
+    }
+    public void setNumberRoomEnter(int numberRoomEnter) {
+        this.numberRoomEnter = numberRoomEnter;
+    }
 
     public String getText() {
-        if (DEBUGGING) {
-        return   "            Location: " + this.name          +
-               "\n         Description: " + this.desc          +
-               "\nAvailable Directions: " + this.availableDirs +
-               "\n         Has visited: " + this.hasVisited    +
-               "\n      # room visited: " + this.numberRoomEnter;
-        }
-        else {
-            return this.name + "\n" + this.desc + "\nAvailable Directions: " + this.availableDirs;
-        }
+        return this.name + "\n" + this.desc +"\n You can go "+ this.availableDirs;
     }
 
     public String getName() {
@@ -53,43 +84,28 @@ public class Locale {
         this.desc = value;
     }
 
-    public int getNumberRoomEnter() {return numberRoomEnter;}
-    public void setNumberRoomEnter(int numberRoomEnter) {this.numberRoomEnter = numberRoomEnter;}
-
     public boolean getHasVisited() {
         return hasVisited;
     }
     public void setHasVisited(boolean hasVisited) {
         this.hasVisited = hasVisited;
     }
-
-    public String getAvailableDirs() {return availableDirs;}
-    public void setAvailableDirs(String value) {this.availableDirs = value;}
-
-    //public Items[] getRoomItems() {return roomItems;}
-    //public void setRoomItems(Items[] roomItems) {this.roomItems = roomItems;}
-
-
+    public Locale getNext() {
+        return next;
+    }
+    public void setNext(Locale next) {
+        this.next = next;
+    }
 
 
-    // Other methods
-   /* @Override
-    public String toString(){
-        return "[Locale id="
-                + this.id
-                + " name="
-                + this.name
-                + " desc=" + this.desc
-                + " hasVisited=" + this.hasVisited + "]";
-    } */
 
     //
     //  Private
     //
-    private int    id;
-    private String name;
-    private String desc;
-    private String availableDirs;
-
-
+    private int     id;
+    private String  name;
+    private String  desc;
+    private String  availableDirs; // The directions where the player can go from this locale.
+    private boolean hasVisited = false;
+    private Locale  north, south, east, west;
 }
