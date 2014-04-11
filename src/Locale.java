@@ -5,6 +5,7 @@ public class Locale {
     // Public
     //
     public int numberRoomEnter;
+    public boolean HasVisited;
 
     // Constructors
     public Locale(){
@@ -72,7 +73,7 @@ public class Locale {
     }
 
     public String getText() {
-        return this.name + "\n" + this.desc +"\n You can go "+ this.availableDirs;
+        return this.name + "\n" + this.desc +"\n You can go: "+ this.availableDirs;
     }
 
     public String getName() {

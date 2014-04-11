@@ -92,14 +92,10 @@ public class Game {
         System.out.println("You have just woken up in a crazy futuristic society and you have to get home!");
 
 
-        // Set up the location instances of the Locale class.
-        // The unused code is there because I was testing something, and couldn't seem to get it to work
-        // but I still want to try it out later
         Locale loc0 = new Locale(0);
         loc0.setName("A Shack");
         loc0.setDesc("It's a pretty small shack, but there appears to be a map tacked to the wall.");
         loc0.setAvailableDirs("North East");
-        //loc0.setHasVisited(false);
 
         Locale loc1 = new Locale(1);
         loc1.setName("Erebor");
@@ -117,44 +113,38 @@ public class Game {
         loc3.setName("The SUPER Market");
         loc3.setDesc("We have every brand you can think of! Here take this free sample.");
         loc3.setAvailableDirs("South West East");
-        //loc3.setHasVisited(false);
 
         Locale loc4 = new Locale(4);
         loc4.setName("Rainbow Road");
         loc4.setDesc("Wiiiiiiiiiiiiii! But wait, what car do these keys go to?");
         loc4.setAvailableDirs("North East");
-        //loc4.setHasVisited(false);
 
         Locale loc5 = new Locale(5);
         loc5.setName("Eetzeek Hagadol");
         loc5.setDesc("Shalom habibi, mah aht rotsah? Would you like some french fries?");
         loc5.setAvailableDirs("West");
-        //loc5.setHasVisited(false);
 
         Locale loc6 = new Locale(6);
         loc6.setName("Magick Shoppe");
         loc6.setDesc("Get here, enchanted stuff, you may");
         loc6.setAvailableDirs("North");
-        //loc6.setHasVisited(false);
 
         Space loc7 = new Space(7);
         loc7.setName("Kennedy Space Center");
         loc7.setDesc("There's a shuttle ready to launch. To enter, please enter the launch code.");
         loc7.setAvailableDirs("South");
         loc7.setNearestPlanet("Planet Vegeta");
-        //loc7.setHasVisited(false);
 
         Time loc8 = new Time(8);
         loc8.setName("The DeLorean");
         loc8.setDesc("The time is set to August 15, 1969"); //TODO: enable the player to put keys in the ignition and put garbage in the mr fusion to power the car
         loc8.setAvailableDirs("South");
         loc8.setNearestYear("August 15, 1969");
-        //loc8.setHasVisited(false);
 
         Space loc9 = new Space(9);
         loc9.setName("Planet Vegeta");
         loc9.setDesc("A strange boy with a tail walks up to you holding a strange machine. He tells you to take it.");
-        //loc9.setAvailableDirs("");
+        loc9.setAvailableDirs("earth");
 
         // Set up the location array.
         locations = new Locale[10];
@@ -177,7 +167,7 @@ public class Game {
         loc1.setNorth(loc2);
         loc1.setSouth(loc6);
         loc1.setEast(null);
-        loc1.setWest(loc1);
+        loc1.setWest(loc0);
         loc2.setNorth(loc7);
         loc2.setSouth(loc1);
         loc2.setEast(loc5);
@@ -311,7 +301,6 @@ public class Game {
             if(currentLocale.getNorth()!=null){
                 currentLocale = currentLocale.getNorth();
                 moves+=1;
-                score+=5;
 
             } else {
                 System.out.println("You can't go that way");
@@ -320,13 +309,6 @@ public class Game {
             if(currentLocale.getSouth()!=null){
                 currentLocale = currentLocale.getSouth();
                 moves+=1;
-                score+=5;
-                if(currentLocale.getId()==6&& visited==false){
-                    setupShop(lm1);
-                }
-                else if(currentLocale.getId()==6){
-                    transaction();
-                }
 
             } else {
                 System.out.println("You can't go that way");
@@ -335,7 +317,6 @@ public class Game {
             if(currentLocale.getEast()!=null){
                 currentLocale = currentLocale.getEast();
                 moves+=1;
-                score+=5;
 
             } else {
                 System.out.println("You can't go that way");
@@ -344,11 +325,24 @@ public class Game {
             if (currentLocale.getWest() != null) {
                 currentLocale = currentLocale.getWest();
                 moves += 1;
-                score+=5;
 
             } else {
                 System.out.println("You can't go that way");
             }
+        }
+
+        if(currentLocale.getId()==6&& visited==false){
+            setupShop(lm1);
+        }
+        else if(currentLocale.getId()==6){
+            transaction();
+        }
+        currentLocale.numberRoomEnter = currentLocale.numberRoomEnter + 1;
+        if (currentLocale.numberRoomEnter <= 1) {
+            currentLocale.setHasVisited(false);
+            score = score + 5;
+        } else if (currentLocale.numberRoomEnter > 1) {
+            currentLocale.setHasVisited(true);
         }
     }
 
@@ -375,12 +369,12 @@ public class Game {
         System.out.println("   s/south");
         System.out.println("   e/east");
         System.out.println("   w/west");
-        if (currentLocale == locations[9]) {
-            System.out.println("   earth (takes you back to earth");
-        }
-        if (inventory[1].itemFound()) {
-            System.out.println("atm (pulls out the Insta-Cash");
-        }
+    if (currentLocale == locations[9]) {
+        System.out.println("   earth (takes you back to earth");
+    }
+    if (inventory[1].itemFound()) {
+        System.out.println("   atm (pulls out the Insta-Cash");
+    }
         System.out.println("   i/inventory");
         System.out.println("   m/map");
         System.out.println("   t/take");
@@ -425,6 +419,7 @@ public class Game {
         if (currentLocale == locations[9]) {
             inventory[1].setFound(true);
             System.out.println("The " + inventory[1].getName() + " was placed in your handy dandy belt Satchel!");
+            currentLocale.setDesc("The strange boy with the tail is seen running away in the distance");
         }
         if (currentLocale == locations[3]) {
             inventory[2].setFound(true);
@@ -564,11 +559,9 @@ public class Game {
         System.out.println("I need to finish setting up, come back later");
         readMagicItemsFromFile("magicitems.txt", lm);
         visited=true;
+        currentLocale = locations[1];
+
     }
-
-
-
-
 
 
 }
