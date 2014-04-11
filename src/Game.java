@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game {
 
@@ -29,6 +30,7 @@ public class Game {
     public static  List0 lm1 = new List0();
     public static int num= 5;
     public static boolean visited = false;
+    public static Random rand= new Random();
 
 
     public static void main(String[] args) {
@@ -359,6 +361,11 @@ public class Game {
         currentLocale = locations[9];
     }
 
+    private static void useATM() {
+        System.out.println("Welcome to the Insta-Cash, we have deposited X coins in your Satchel");
+        coins.add(rand.nextInt((int) (Math.random()*100)));
+    }
+
 
 
     private static void help() {
@@ -400,7 +407,7 @@ public class Game {
         if(inventory[5].itemFound()){
             satchel =satchel+inventory[4].toString()+ "\n";
         }
-        System.out.println(satchel);
+        System.out.println(satchel + coins.showMoney());
 
     }
 
@@ -473,11 +480,6 @@ public class Game {
     }
 
 
-    private static void useATM() {
-        System.out.println("You can use the ATM");
-    }
-
-
 
     private static boolean sequentialSearch(List0 lm,
                                             String target) {
@@ -499,15 +501,15 @@ public class Game {
             }
         }
         if (isFound) {
-            System.out.println("Hey sorry about the wait. I found the "+ target +" that you requested.");
-            System.out.println("the price of the item is "+ currentItem.getCost()+" Valencia");
-            System.out.println("Do you want to purchase this item? Enter true or false to continue...");
+            System.out.println("Hey, here's the "+ target +".");
+            System.out.println("It'll cost you "+ currentItem.getCost());
+            System.out.println("Do you want to purchase this item?");
             String buy = transaction.nextLine();
-            if(coins.getAmt()>=currentItem.getCost()&&buy.equalsIgnoreCase("true")){
+            if(coins.getAmt()>=currentItem.getCost()&&buy.equalsIgnoreCase("yes")){
                 purchase=currentItem;
                 return true;
             }
-            else if(buy.equalsIgnoreCase("true")){
+            else if(buy.equalsIgnoreCase("yes")){
                 System.out.println("You don't have enough Valencia to buy that. :/");
                 return false;
             }
@@ -516,12 +518,12 @@ public class Game {
             }
 
         } else {
-            System.out.println("Sorry, I couldn't find " + target + " in my stock. \nCheck your armoury to see if you have already purchased the item. \nYou also could have asked for an item I don't have.");
+            System.out.println("I don't seem to see a " + target + "We might not have it, but could you try to describe it again?");
             return false;
         }
     }
     public static void transaction(){
-        System.out.println("Hello again! How've ya been? Oh, I keep forgetting you're a robot. \n Pick an item from the stock");
+        System.out.println("What would you like?");
         String selection=transaction.nextLine();
         if(sequentialSearch(lm1, selection)== true){
             coins.subtract(purchase.getCost());
@@ -555,9 +557,9 @@ public class Game {
         }
     }
     private static void setupShop(List0 lm){
-        System.out.println("Why hello there! Is this your first time here? Excuse me while I set things up...");
+        System.out.println("Just finished setting up, give me a sec");
         readMagicItemsFromFile("magicitems.txt", lm);
-        System.out.println("Ok, I'm all done setting up. Just talk to me again to buy something.");
+        System.out.println("What are you looking for?");
         visited=true;
     }
 
