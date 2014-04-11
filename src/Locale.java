@@ -28,30 +28,35 @@ public class Locale {
     public void setId(int id) {
         this.id=id;
     }
+
     public Locale getNorth(){
         return north;
     }
     public void setNorth(Locale north){
         this.north=north;
     }
+
     public Locale getSouth(){
         return south;
     }
     public void setSouth(Locale south){
         this.south=south;
     }
+
     public Locale getEast(){
         return east;
     }
     public void setEast(Locale east){
         this.east=east;
     }
+
     public Locale getWest(){
         return west;
     }
     public void setWest(Locale west){
         this.west=west;
     }
+
     public String getAvailableDirs() {
         return availableDirs;
     }
@@ -90,6 +95,7 @@ public class Locale {
     public void setHasVisited(boolean hasVisited) {
         this.hasVisited = hasVisited;
     }
+
     public Locale getNext() {
         return next;
     }

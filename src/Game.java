@@ -4,6 +4,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Game {
 
@@ -18,14 +19,17 @@ public class Game {
     public static String command;               // What the player types as he or she plays the game.
     public static boolean stillPlaying = true;  // Controls the game loop.
     public static Locale[] locations;           // An uninitialized array of type Locale. See init() for initialization.
-    public static int[][]  nav;                 // An uninitialized array of type int int.
     public static int moves = 0;                // Counter of the player's moves.
     public static int score = 0;                // Tracker of the player's score.
-    public static int money = 1000;                // Keeps track of how much money the player has.
+    public static money coins = new money();            // Keeps track of how much money the player has.
     public static Items[] inventory;
-    public static String purchasedItem;         // this is where your purchased items are held
+    public static ArrayList<String> satchel = new ArrayList<String>();
     public static ListItem purchase = new ListItem();
-    //public static ArrayList<string>
+    public static Scanner transaction = new Scanner(System.in);
+    public static  List0 lm1 = new List0();
+    public static int num= 5;
+    public static boolean visited = false;
+
 
     public static void main(String[] args) {
         if (DEBUGGING) {
@@ -268,9 +272,6 @@ public class Game {
         System.out.println(currentLocale.getText());
         System.out.println("[" + moves + " moves, score " + score + "] ");
         System.out.println("-------------------------------------------");
-        if (currentLocale == locations[6]){
-            createMagicItems();
-        }
     }
 
     private static void getCommand() {
@@ -279,8 +280,6 @@ public class Game {
     }
 
     private static void navigate() {
-
-
 
 
         if (command.equalsIgnoreCase("map") || command.equalsIgnoreCase("m")) {
@@ -297,6 +296,12 @@ public class Game {
             blastOff();
         } else if (command.equalsIgnoreCase("earth") && currentLocale == locations[9]) {
             goHome();
+        } else if (command.equalsIgnoreCase("atm")) {
+            if (inventory[1].itemFound()) {
+                useATM();
+            } else {
+                System.out.println("You don't own that yet.");
+            }
         }
 
 
@@ -314,6 +319,12 @@ public class Game {
                 currentLocale = currentLocale.getSouth();
                 moves+=1;
                 score+=5;
+                if(currentLocale.getId()==6&& visited==false){
+                    setupShop(lm1);
+                }
+                else if(currentLocale.getId()==6){
+                    transaction();
+                }
 
             } else {
                 System.out.println("You can't go that way");
@@ -462,43 +473,16 @@ public class Game {
     }
 
 
-    private static void giveMoney() {
-
+    private static void useATM() {
+        System.out.println("You can use the ATM");
     }
 
-    private static void createMagicItems() {
-            // Make the list manager.
-            ListMan lm1 = new ListMan();
-            lm1.setName("Magic Items");
-            lm1.setDesc("These are some of my favorite things.");
-
-            final String fileName = "magicitems.txt";
-
-            readMagicItemsFromFileToList(fileName, lm1);
-
-            // Declare an array for the items.
-            ListItem[] items = new ListItem[lm1.getLength()];
-            readMagicItemsFromFileToArray(fileName, items);
-
-            // Ask player for an item.
-            Scanner inputReader = new Scanner(System.in);
-            System.out.print("What item would you like? ");
-            String targetItem = new String();
-            targetItem = inputReader.nextLine();
-            System.out.println();
-
-            ListItem li = new ListItem();
-            li = sequentialSearch(lm1, targetItem);
-            if (li != null) {
-                System.out.println(li.toString());
-            }
-        }
 
 
-    private static ListItem sequentialSearch(ListMan lm,
-                                             String target) {
-        ListItem retVal = null;
-        System.out.println("Let me see if we have a " + target + ".");
+    private static boolean sequentialSearch(List0 lm,
+                                            String target) {
+
+        System.out.println("Let me look for " + target + ".");
         int counter = 0;
         ListItem currentItem = new ListItem();
         currentItem = lm.getHead();
@@ -506,105 +490,75 @@ public class Game {
         while ( (!isFound) && (currentItem != null) ) {
             counter = counter +1;
             if (currentItem.getName().equalsIgnoreCase(target)) {
-                // We found it!
+                //We found it!
                 isFound = true;
-                retVal = currentItem;
+
             } else {
                 // Keep looking.
                 currentItem = currentItem.getNext();
             }
         }
         if (isFound) {
-            System.out.println("We have a " + retVal + ". It wil cost you " + retVal.getCost() ); //TODO: setup pricing system
-                if (money >= retVal.getCost()) {
+            System.out.println("Hey sorry about the wait. I found the "+ target +" that you requested.");
+            System.out.println("the price of the item is "+ currentItem.getCost()+" Valencia");
+            System.out.println("Do you want to purchase this item? Enter true or false to continue...");
+            String buy = transaction.nextLine();
+            if(coins.getAmt()>=currentItem.getCost()&&buy.equalsIgnoreCase("true")){
+                purchase=currentItem;
+                return true;
+            }
+            else if(buy.equalsIgnoreCase("true")){
+                System.out.println("You don't have enough Valencia to buy that. :/");
+                return false;
+            }
+            else{
+                return false;
+            }
 
-                    purchase = retVal;
-                    //Items magicItem = new Items(purschase.getName(), retVal.getDesc());
-                    //satchel.add(magicItem.getName());
-                }
-                else if (money < retVal.getCost()) {
-                    System.out.println("I'm sorry, but you do not have enough money.");
-                }
         } else {
-            System.out.println("I'm sorry, but we don't have that could you be more specific or would you like to look for something else?");
+            System.out.println("Sorry, I couldn't find " + target + " in my stock. \nCheck your armoury to see if you have already purchased the item. \nYou also could have asked for an item I don't have.");
+            return false;
         }
-
-        return null;
     }
-
-    //private static void purchaseItem(){
-      //  Items magicItem = new Items(purchase.getName())
-    //}
-
-
-    private static void readMagicItemsFromFileToList(String fileName,
-                                                     ListMan lm) {
+    public static void transaction(){
+        System.out.println("Hello again! How've ya been? Oh, I keep forgetting you're a robot. \n Pick an item from the stock");
+        String selection=transaction.nextLine();
+        if(sequentialSearch(lm1, selection)== true){
+            coins.subtract(purchase.getCost());
+            Items magicItem=new Items(num, purchase.getName(), purchase.getDesc(), true);
+            satchel.add(magicItem.getName());
+        }
+    }
+    private static void readMagicItemsFromFile(String fileName,
+                                               List0 lm) {
         File myFile = new File(fileName);
         try {
             Scanner input = new Scanner(myFile);
             while (input.hasNext()) {
-                // Read a line from the file.
+        // Read a line from the file.
                 String itemName = input.nextLine();
 
-                // Construct a new list item and set its attributes.
+        // Construct a new list item and set its attributes.
                 ListItem fileItem = new ListItem();
                 fileItem.setName(itemName);
-                fileItem.setCost(Math.random() * 100);
+                fileItem.setDesc(" ");
+                fileItem.setCost((int) (Math.random() * 100));
                 fileItem.setNext(null); // Still redundant. Still safe.
 
-                // Add the newly constructed item to the list.
+        // Add the newly constructed item to the list.
                 lm.add(fileItem);
             }
-            // Close the file.
-            input.close();
-        } catch (FileNotFoundException ex) {
-            System.out.println("File not found. " + ex.toString());
-        }
-
-    }
-
-    private static void readMagicItemsFromFileToArray(String fileName,
-                                                      ListItem[] items) {
-        File myFile = new File(fileName);
-        try {
-            int itemCount = 0;
-            Scanner input = new Scanner(myFile);
-
-            while (input.hasNext() && itemCount < items.length) {
-                // Read a line from the file.
-                String itemName = input.nextLine();
-
-                // Construct a new list item and set its attributes.
-                ListItem fileItem = new ListItem();
-                fileItem.setName(itemName);
-                fileItem.setCost(Math.random() * 100);
-                fileItem.setNext(null); // Still redundant. Still safe.
-
-                // Add the newly constructed item to the array.
-                items[itemCount] = fileItem;
-                itemCount = itemCount + 1;
-            }
-            // Close the file.
+        // Close the file.
             input.close();
         } catch (FileNotFoundException ex) {
             System.out.println("File not found. " + ex.toString());
         }
     }
-
-    private static void selectionSort(ListItem[] items) {
-        for (int pass = 0; pass < items.length-1; pass++) {
-            // System.out.println(pass + "-" + items[pass]);
-            int indexOfTarget = pass;
-            int indexOfSmallest = indexOfTarget;
-            for (int j = indexOfTarget+1; j < items.length; j++) {
-                if (items[j].getName().compareToIgnoreCase(items[indexOfSmallest].getName()) < 0) {
-                    indexOfSmallest = j;
-                }
-            }
-            ListItem temp = items[indexOfTarget];
-            items[indexOfTarget] = items[indexOfSmallest];
-            items[indexOfSmallest] = temp;
-        }
+    private static void setupShop(List0 lm){
+        System.out.println("Why hello there! Is this your first time here? Excuse me while I set things up...");
+        readMagicItemsFromFile("magicitems.txt", lm);
+        System.out.println("Ok, I'm all done setting up. Just talk to me again to buy something.");
+        visited=true;
     }
 
 

@@ -10,6 +10,20 @@ public class Items {
     }
 
     // Getters and Setters
+
+
+    public Items(){
+        this.id=0;
+    }
+
+    public Items(int id, String name, String desc, Boolean found){
+        this.id=id;
+        this.name=name;
+        this.desc=desc;
+        this.found=found;
+    }
+
+
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
 
