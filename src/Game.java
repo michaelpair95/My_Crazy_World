@@ -207,7 +207,7 @@ public class Game {
         loc8.setEast(null);
         loc8.setWest(null);
         loc9.setNorth(null);
-        loc9.setSouth(loc7);
+        loc9.setSouth(null);
         loc9.setEast(null);
         loc9.setWest(null);
 
@@ -362,7 +362,7 @@ public class Game {
     }
 
     private static void useATM() {
-        System.out.println("Welcome to the Insta-Cash, we have deposited X coins in your Satchel");
+        System.out.println("Thank you for using Insta-Cash, we have put more coins in your Satchel");
         coins.add(rand.nextInt((int) (Math.random()*100)));
     }
 
@@ -375,8 +375,12 @@ public class Game {
         System.out.println("   s/south");
         System.out.println("   e/east");
         System.out.println("   w/west");
-        System.out.println("   l/leave (for the Magick Shoppe.");
-        System.out.println("   earth (takes you back to earth");
+        if (currentLocale == locations[9]) {
+            System.out.println("   earth (takes you back to earth");
+        }
+        if (inventory[1].itemFound()) {
+            System.out.println("atm (pulls out the Insta-Cash");
+        }
         System.out.println("   i/inventory");
         System.out.println("   m/map");
         System.out.println("   t/take");
@@ -405,7 +409,7 @@ public class Game {
             satchel =satchel+inventory[4].toString()+ "\n";
         }
         if(inventory[5].itemFound()){
-            satchel =satchel+inventory[4].toString()+ "\n";
+            satchel =satchel+inventory[5].toString()+ "\n";
         }
         System.out.println(satchel + coins.showMoney());
 
@@ -510,7 +514,7 @@ public class Game {
                 return true;
             }
             else if(buy.equalsIgnoreCase("yes")){
-                System.out.println("You don't have enough Valencia to buy that. :/");
+                System.out.println("You don't have enough coins to buy that.");
                 return false;
             }
             else{
@@ -557,9 +561,8 @@ public class Game {
         }
     }
     private static void setupShop(List0 lm){
-        System.out.println("Just finished setting up, give me a sec");
+        System.out.println("I need to finish setting up, come back later");
         readMagicItemsFromFile("magicitems.txt", lm);
-        System.out.println("What are you looking for?");
         visited=true;
     }
 
