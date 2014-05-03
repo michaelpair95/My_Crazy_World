@@ -34,17 +34,17 @@ public class List0 {
         this.length = this.length + 1;
     }
 
+    // Other methods
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[ListMan: name=" + this.name + " desc=" + this.desc + "] List Items:\n");
+        String retVal = new String();
+        retVal = " name=" + this.name + " desc=" + this.desc + "\n";
         ListItem currentItem = this.head;
         while (currentItem != null) {
-            sb.append(currentItem.toString());
-            sb.append("\n");
+            retVal = retVal + currentItem.toString() + "\n";
             currentItem = currentItem.getNext();
         }
-        return sb.toString();
+        return retVal;
     }
 
     //

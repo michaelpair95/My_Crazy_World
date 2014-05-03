@@ -31,6 +31,8 @@ public class Game {
     public static int num= 5;
     public static boolean visited = false;
     public static Random rand= new Random();
+    public static boolean fueled = false;
+    public static boolean superGarbage = false;
 
 
     public static void main(String[] args) {
@@ -240,23 +242,6 @@ public class Game {
         currentLocale=loc0;
 
 
-        /*
-
-        // Set up the navigation matrix.
-        nav = new int[][] {
-        N   S   E  W
-        0   1   2  3
-        { 3, -1,  1, -1},
-        { 2,  6, -1,  0},
-        { 7,  1,  5,  3},
-        {-1,  0,  2,  4},
-        { 8, -1,  3, -1},
-        {-1, -1, -1,  2},
-        { 1, -1, -1, -1},
-        {-1,  2, -1, -1},
-        {-1,  4, -1, -1},
-        };
-        */
     }
 
     private static void updateDisplay() {
@@ -288,6 +273,18 @@ public class Game {
             blastOff();
         } else if (command.equalsIgnoreCase("earth") && currentLocale == locations[9]) {
             goHome();
+        } else if (command.equalsIgnoreCase("turn") && currentLocale == locations[8]) {
+            if (fueled == true && inventory[3].itemFound()) {
+                startCar();
+            } else if (fueled == true && !(inventory[3].itemFound())) {
+                System.out.println("You need keys to start a car");
+            } else if (inventory[3].itemFound() &&fueled == false) {
+                System.out.println("The car needs fuel to start, try picking some Super Garbage from the Magick Shoppe");
+            } else {
+                System.out.println("What makes you think this car will start without the keys or Super Garbage?");
+            }
+        } else if (command.equalsIgnoreCase("fill") && currentLocale == locations[8]) {
+            fuelCar();
         } else if (command.equalsIgnoreCase("atm")) {
             if (inventory[1].itemFound()) {
                 useATM();
@@ -361,7 +358,6 @@ public class Game {
     }
 
 
-
     private static void help() {
         System.out.println("-------------------------------------------");;
         System.out.println("The commands are as follows:");
@@ -385,59 +381,44 @@ public class Game {
 
 
     private static void showInventory(){
-
-        String satchel="";
-        if (inventory[0].itemFound()){
-            satchel= satchel+inventory[0].toString()+ "\n";
-        }
-        if(inventory[1].itemFound()){
-            satchel =satchel+inventory[1].toString()+ "\n";
-        }
-        if(inventory[2].itemFound()){
-            satchel =satchel+inventory[2].toString()+ "\n";
-        }
-        if(inventory[3].itemFound()){
-            satchel =satchel+inventory[3].toString()+ "\n";
-        }
-        if(inventory[4].itemFound()){
-            satchel =satchel+inventory[4].toString()+ "\n";
-        }
-        if(inventory[5].itemFound()){
-            satchel =satchel+inventory[5].toString()+ "\n";
-        }
-        System.out.println(satchel + coins.showMoney());
-
+        System.out.println(satchel + "\n" + coins.showMoney());
     }
 
-    private static void takeItem(){
+    private static void takeItem() {
 
         if (currentLocale == locations[0]) {
             inventory[0].setFound(true);
+            satchel.add(inventory[0].getName());
             System.out.println("The " + inventory[0].getName() + " was placed in your handy dandy belt Satchel!");
             currentLocale.setDesc("It's a pretty small shack");
         }
         if (currentLocale == locations[9]) {
             inventory[1].setFound(true);
+            satchel.add(inventory[1].getName());
             System.out.println("The " + inventory[1].getName() + " was placed in your handy dandy belt Satchel!");
             currentLocale.setDesc("The strange boy with the tail is seen running away in the distance");
         }
         if (currentLocale == locations[3]) {
             inventory[2].setFound(true);
+            satchel.add(inventory[2].getName());
             System.out.println("The " + inventory[2].getName() + " was placed in your handy dandy belt Satchel!");
             currentLocale.setDesc("We have every brand you can think of!");
         }
         if (currentLocale == locations[4]) {
             inventory[3].setFound(true);
+            satchel.add(inventory[3].getName());
             System.out.println("The " + inventory[3].getName() + " was placed in your handy dandy belt Satchel!");
             currentLocale.setDesc("Wiiiiiiiiiiiiii!");
         }
         if (currentLocale == locations[2]) {
             inventory[4].setFound(true);
+            satchel.add(inventory[4].getName());
             System.out.println("The " + inventory[4].getName() + " was placed in your handy dandy belt Satchel!");
             currentLocale.setDesc("It's so boring in here...");
         }
         if (currentLocale == locations[5]) {
             inventory[5].setFound(true);
+            satchel.add(inventory[5].getName());
             System.out.println("The " + inventory[5].getName() + " was placed in your handy dandy belt Satchel!");
             currentLocale.setDesc("Shalom habibi, mah aht rotsah?");
         }
@@ -478,6 +459,19 @@ public class Game {
         }
     }
 
+    private static void startCar() {
+        System.out.println("WELCOME TO WOODSTOCK!!!!!!!!!");
+        System.out.println("YOU WON!!!!!!!");
+    }
+
+    private static void fuelCar() {
+        if (superGarbage == true) {
+            fueled =  true;
+            System.out.println("You put fuel in the car.");
+        } else {
+            System.out.println("You don't have any fuel, you need super garbage!");
+        }
+    }
 
 
     private static boolean sequentialSearch(List0 lm,
@@ -528,6 +522,9 @@ public class Game {
             coins.subtract(purchase.getCost());
             Items magicItem=new Items(num, purchase.getName(), purchase.getDesc(), true);
             satchel.add(magicItem.getName());
+            if (magicItem.getName().equals("Super Garbage")) {
+                superGarbage = true;
+            }
         }
     }
     private static void readMagicItemsFromFile(String fileName,

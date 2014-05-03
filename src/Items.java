@@ -38,8 +38,9 @@ public class Items {
 
     public void setFound(Boolean found) {this.found = found;}
 
-    public String toString(){return this.name +": "+ this.desc;}
+    public boolean isFound() {return found;}
 
+    public String toString(){return this.name +": "+ this.desc;}
 
 
     /*
