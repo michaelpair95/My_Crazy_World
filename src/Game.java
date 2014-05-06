@@ -275,10 +275,10 @@ public class Game {
             goHome();
         } else if (command.equalsIgnoreCase("turn") && currentLocale == locations[8]) {
             if (fueled == true && inventory[3].itemFound()) {
-                startCar();
+                endGame();
             } else if (fueled == true && !(inventory[3].itemFound())) {
                 System.out.println("You need keys to start a car");
-            } else if (inventory[3].itemFound() &&fueled == false) {
+            } else if (inventory[3].itemFound() && fueled == false) {
                 System.out.println("The car needs fuel to start, try picking some Super Garbage from the Magick Shoppe");
             } else {
                 System.out.println("What makes you think this car will start without the keys or Super Garbage?");
@@ -298,7 +298,6 @@ public class Game {
             if(currentLocale.getNorth()!=null){
                 currentLocale = currentLocale.getNorth();
                 moves+=1;
-
             } else {
                 System.out.println("You can't go that way");
             }
@@ -340,6 +339,13 @@ public class Game {
             score = score + 5;
         } else if (currentLocale.numberRoomEnter > 1) {
             currentLocale.setHasVisited(true);
+        }
+
+        myStack.push(currentLocale.getName());
+        try {
+            myQueue.enqueue(currentLocale.getName());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -430,6 +436,13 @@ public class Game {
 
     private static void quit() {
         stillPlaying = false;
+        System.out.println("Would you like to see your moves from the start, finish, or neither?");
+        getCommand();
+        if(command.equalsIgnoreCase("start")){
+            movesForward();
+        } else if (command.equalsIgnoreCase("finish")){
+            movesBackwards();
+        }
     }
 
     private static void Map() {
@@ -459,9 +472,16 @@ public class Game {
         }
     }
 
-    private static void startCar() {
+    private static void endGame() {
         System.out.println("WELCOME TO WOODSTOCK!!!!!!!!!");
         System.out.println("YOU WON!!!!!!!");
+        System.out.println("Would you like to see your moves from the start, finish, or neither?");
+        getCommand();
+        if(command.equalsIgnoreCase("start")){
+            movesForward();
+        } else if (command.equalsIgnoreCase("finish")){
+            movesBackwards();
+        }
     }
 
     private static void fuelCar() {
@@ -558,6 +578,36 @@ public class Game {
         visited=true;
         currentLocale = locations[1];
 
+    }
+
+    static Stack myStack = new Stack();
+    //Create the stack for the locations; Backwards
+    static Queue myQueue = new Queue();
+    //Create the queue for the locations; Forwards
+
+
+    private static void movesBackwards() {
+
+        for(int i = 0; i <= moves + 1 ; i++){
+            try {
+                System.out.println(myStack.pop());
+
+            } catch (Exception ex) {
+                System.out.println("Caught exception: " + ex.getMessage());
+            }
+        }
+    }
+
+    private static void movesForward() {
+
+        for(int i = 0; i <= moves + 1 ; i++){
+            try {
+                System.out.println(myQueue.dequeue());
+
+            } catch (Exception ex) {
+                System.out.println("Caught exception: " + ex.getMessage());
+            }
+        }
     }
 
 

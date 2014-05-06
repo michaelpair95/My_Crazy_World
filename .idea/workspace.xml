@@ -66,12 +66,41 @@
       <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7329843" vertical-offset="8790" max-vertical-offset="9571">
-              <caret line="556" column="46" selection-start-line="556" selection-start-column="32" selection-end-line="556" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.37827227" vertical-offset="6324" max-vertical-offset="7531">
+              <caret line="485" column="0" selection-start-line="485" selection-start-column="0" selection-end-line="485" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+                <element signature="method#useATM#0;class#Game#0" expanded="false" />
+                <element signature="method#help#0;class#Game#0" expanded="false" />
+                <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+                <element signature="method#Map#0;class#Game#0" expanded="false" />
+                <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+                <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+                <element signature="method#transaction#0;class#Game#0" expanded="false" />
+                <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Queue.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Queue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1258">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stack.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Stack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1224">
+              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,18 +148,8 @@
       <file leaf-file-name="ListMan.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ListMan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="1071">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1071">
               <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="List0.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/List0.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1071">
-              <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -175,6 +194,8 @@
         <option value="$PROJECT_DIR$/src/Locale.java" />
         <option value="$PROJECT_DIR$/src/List0.java" />
         <option value="$PROJECT_DIR$/src/Items.java" />
+        <option value="$PROJECT_DIR$/src/Queue.java" />
+        <option value="$PROJECT_DIR$/src/Stack.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
@@ -210,8 +231,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -439,7 +460,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -456,7 +477,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63726705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -509,7 +530,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -517,25 +538,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="600">
-          <caret line="3" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1829" max-vertical-offset="4755">
-          <caret line="147" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Items.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="795">
@@ -575,6 +577,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -610,6 +621,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -645,6 +665,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,6 +709,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -715,6 +753,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -750,6 +797,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -785,6 +841,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -820,6 +885,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -855,6 +929,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -866,6 +949,15 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -888,23 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1071">
           <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Space.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="703">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="760">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -948,13 +1023,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="760">
+          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Space.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="703">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="1258">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="447" max-vertical-offset="1224">
+          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7329843" vertical-offset="8790" max-vertical-offset="9571">
-          <caret line="556" column="46" selection-start-line="556" selection-start-column="32" selection-end-line="556" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.37827227" vertical-offset="6324" max-vertical-offset="7531">
+          <caret line="485" column="0" selection-start-line="485" selection-start-column="0" selection-end-line="485" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#blastOff#0;class#Game#0" expanded="false" />
+            <element signature="method#useATM#0;class#Game#0" expanded="false" />
+            <element signature="method#help#0;class#Game#0" expanded="false" />
+            <element signature="method#takeItem#0;class#Game#0" expanded="false" />
+            <element signature="method#Map#0;class#Game#0" expanded="false" />
+            <element signature="method#fuelCar#0;class#Game#0" expanded="false" />
+            <element signature="method#sequentialSearch#0;class#Game#0" expanded="false" />
+            <element signature="method#transaction#0;class#Game#0" expanded="false" />
+            <element signature="method#readMagicItemsFromFile#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
