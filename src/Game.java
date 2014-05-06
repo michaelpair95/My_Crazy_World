@@ -91,7 +91,7 @@ public class Game {
 
         System.out.println("Mikes Crazy World!");
         System.out.println("To see a list of commands, type \"h\" or \"help\"");
-        System.out.println("You have just woken up in a crazy futuristic society and you have to get home!");
+        System.out.println("You have just woken up in a crazy futuristic society and all you want to do is go to Woodstock!");
 
 
         Locale loc0 = new Locale(0);
@@ -293,7 +293,6 @@ public class Game {
             }
         }
 
-
         if (      command.equalsIgnoreCase("north") || command.equalsIgnoreCase("n") ) {
             if(currentLocale.getNorth()!=null){
                 currentLocale = currentLocale.getNorth();
@@ -331,6 +330,9 @@ public class Game {
             setupShop(lm1);
         }
         else if(currentLocale.getId()==6){
+            updateDisplay();
+            System.out.println("Hello! Welcome to the Magick Shoppe!");
+            System.out.println("What are you looking for?");
             transaction();
         }
         currentLocale.numberRoomEnter = currentLocale.numberRoomEnter + 1;
@@ -365,7 +367,7 @@ public class Game {
 
 
     private static void help() {
-        System.out.println("-------------------------------------------");;
+        System.out.println("-------------------------------------------");
         System.out.println("The commands are as follows:");
         System.out.println("   n/north");
         System.out.println("   s/south");
@@ -373,10 +375,14 @@ public class Game {
         System.out.println("   w/west");
     if (currentLocale == locations[9]) {
         System.out.println("   earth (takes you back to earth");
-    }
+        }
     if (inventory[1].itemFound()) {
         System.out.println("   atm (pulls out the Insta-Cash");
-    }
+        }
+    if (currentLocale == locations[8]) {
+        System.out.println("   fill (puts fuel in the car");
+        System.out.println("   turn (starts the car");
+        }
         System.out.println("   i/inventory");
         System.out.println("   m/map");
         System.out.println("   t/take");
@@ -440,8 +446,10 @@ public class Game {
         getCommand();
         if(command.equalsIgnoreCase("start")){
             movesForward();
+            return;
         } else if (command.equalsIgnoreCase("finish")){
             movesBackwards();
+            return;
         }
     }
 
@@ -473,8 +481,12 @@ public class Game {
     }
 
     private static void endGame() {
-        System.out.println("WELCOME TO WOODSTOCK!!!!!!!!!");
+        stillPlaying = false;
+        System.out.println("YOU MADE IT TO WOODSTOCK!!!!!!!!!");
         System.out.println("YOU WON!!!!!!!");
+        System.out.println("Moves: " + moves);
+        System.out.println("Score: " + score);
+        System.out.println("Skill ratio: " + score / moves);
         System.out.println("Would you like to see your moves from the start, finish, or neither?");
         getCommand();
         if(command.equalsIgnoreCase("start")){
@@ -497,7 +509,7 @@ public class Game {
     private static boolean sequentialSearch(List0 lm,
                                             String target) {
 
-        System.out.println("Let me look for " + target + ".");
+        System.out.println("Let me look for that.");
         int counter = 0;
         ListItem currentItem = new ListItem();
         currentItem = lm.getHead();
@@ -518,25 +530,34 @@ public class Game {
             System.out.println("It'll cost you "+ currentItem.getCost());
             System.out.println("Do you want to purchase this item?");
             String buy = transaction.nextLine();
-            if(coins.getAmt()>=currentItem.getCost()&&buy.equalsIgnoreCase("yes")){
+            if(coins.getAmt()>=currentItem.getCost() &&buy.equalsIgnoreCase("yes")){
                 purchase=currentItem;
+                System.out.println("Thank you for shopping with us! Please come back soon!");
+                currentLocale = locations[1];
                 return true;
-            }
-            else if(buy.equalsIgnoreCase("yes")){
+            } else if(buy.equalsIgnoreCase("yes")){
                 System.out.println("You don't have enough coins to buy that.");
+                System.out.println("Leave and go find some money");
+                currentLocale = locations[1];
                 return false;
-            }
-            else{
+            } else if (buy.equalsIgnoreCase("no")){
+                System.out.println("We have the finest " + target + " in all the land! How dare you no purchase it, get out of my shoppe!");
+                currentLocale = locations[1];
+                return false;
+            } else {
                 return false;
             }
 
         } else {
-            System.out.println("I don't seem to see a " + target + "We might not have it, but could you try to describe it again?");
+            System.out.println("I don't seem to see a " + target + ". Come back later and we might have it!");
+            currentLocale = locations[1];
             return false;
         }
+
     }
+
+
     public static void transaction(){
-        System.out.println("What would you like?");
         String selection=transaction.nextLine();
         if(sequentialSearch(lm1, selection)== true){
             coins.subtract(purchase.getCost());
@@ -547,6 +568,7 @@ public class Game {
             }
         }
     }
+
     private static void readMagicItemsFromFile(String fileName,
                                                List0 lm) {
         File myFile = new File(fileName);
@@ -581,10 +603,6 @@ public class Game {
     }
 
     static Stack myStack = new Stack();
-    //Create the stack for the locations; Backwards
-    static Queue myQueue = new Queue();
-    //Create the queue for the locations; Forwards
-
 
     private static void movesBackwards() {
 
@@ -597,6 +615,7 @@ public class Game {
             }
         }
     }
+    static Queue myQueue = new Queue();
 
     private static void movesForward() {
 
